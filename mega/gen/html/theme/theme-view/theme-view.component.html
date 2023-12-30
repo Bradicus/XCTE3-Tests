@@ -1,0 +1,24 @@
+<div>
+    <h2>Theme</h2>
+    <button type="button" (click)="populateRandom()">Populate</button>
+    <button type="button" (click)="onSubmit()">Submit</button>
+    <form [formGroup]="themeForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div>
+                <label for="id">Id</label>
+                <input id="id" formControlName="id" type="number" />
+            </div>
+            <div>
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" type="text" />
+                <div class="alert alert-danger" *ngIf="themeForm.get('name')?.invalid && (themeForm.get('name')?.dirty || themeForm.get('name')?.touched)">
+                    <div *ngIf="themeForm.get('name')?.errors?.['maxLength']">Name is required</div>
+                </div>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input id="description" formControlName="description" type="text" />
+            </div>
+        </div>
+    </form>
+</div>

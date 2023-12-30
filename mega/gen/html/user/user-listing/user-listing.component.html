@@ -1,0 +1,29 @@
+<button type="button" class="btn btn-primary" routerLink="/user/edit/0">New user</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Created date</th>
+            <th>Last login date</th>
+            <th>Active</th>
+            <th>Theme</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items | async">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.createdDate}}</td>
+            <td>{{item.lastLoginDate}}</td>
+            <td>{{item.active}}</td>
+            <td>{{item.theme}}</td>
+        </tr>
+    </tbody>
+</table>

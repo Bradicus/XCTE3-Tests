@@ -1,0 +1,196 @@
+<div>
+    <h2>Profile admin</h2>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="populateRandom()">Populate</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+    </div>
+    <form [formGroup]="profileAdminEditForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <label class="form-label" for="firstName">First name</label>
+                    <input class="form-control" id="firstName" formControlName="firstName" type="text" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('firstName')?.invalid && (profileAdminEditForm.get('firstName')?.dirty || profileAdminEditForm.get('firstName')?.touched)">
+                        <div *ngIf="profileAdminEditForm.get('firstName')?.errors?.['required']">First name is required</div>
+                        <div *ngIf="profileAdminEditForm.get('firstName')?.errors?.['maxlength']">First name must be 255 characters or less</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="lastName">Last name</label>
+                    <input class="form-control" id="lastName" formControlName="lastName" type="text" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('lastName')?.invalid && (profileAdminEditForm.get('lastName')?.dirty || profileAdminEditForm.get('lastName')?.touched)">
+                        <div *ngIf="profileAdminEditForm.get('lastName')?.errors?.['required']">Last name is required</div>
+                        <div *ngIf="profileAdminEditForm.get('lastName')?.errors?.['maxlength']">Last name must be 255 characters or less</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="pusername">Pusername</label>
+                    <input class="form-control" [readonly]="true" id="pusername" formControlName="pusername" type="text" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('pusername')?.invalid && (profileAdminEditForm.get('pusername')?.dirty || profileAdminEditForm.get('pusername')?.touched)">
+                        <div *ngIf="profileAdminEditForm.get('pusername')?.errors?.['maxlength']">Pusername must be 255 characters or less</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" id="email" formControlName="email" type="text" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('email')?.invalid && (profileAdminEditForm.get('email')?.dirty || profileAdminEditForm.get('email')?.touched)">
+                        <div *ngIf="profileAdminEditForm.get('email')?.errors?.['required']">Email is required</div>
+                        <div *ngIf="profileAdminEditForm.get('email')?.errors?.['maxlength']">Email must be 255 characters or less</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <label class="form-label" for="createdDate">Created date</label>
+                    <input class="form-control" [readonly]="true" id="createdDate" formControlName="createdDate" type="datetime-local" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('createdDate')?.invalid && (profileAdminEditForm.get('createdDate')?.dirty || profileAdminEditForm.get('createdDate')?.touched)"></div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="lastLoginDate">Last login date</label>
+                    <input class="form-control" [readonly]="true" id="lastLoginDate" formControlName="lastLoginDate" type="datetime-local" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('lastLoginDate')?.invalid && (profileAdminEditForm.get('lastLoginDate')?.dirty || profileAdminEditForm.get('lastLoginDate')?.touched)"></div>
+                </div>
+                <fieldset class="row form-group" formGroupName="mailingAddress">
+                    <legend>Mailing address</legend>
+                    <div class="col-md-3 visually-hidden">
+                        <label class="form-label" for="mailingAddress-id">Id</label>
+                        <input class="form-control" id="mailingAddress-id" formControlName="id" type="number" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-street1">Street 1</label>
+                        <input class="form-control" id="mailingAddress-street1" formControlName="street1" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('street1')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('street1')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('street1')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('street1')?.errors?.['required']">Street 1 is required</div>
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('street1')?.errors?.['maxlength']">Street 1 must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-street2">Street 2</label>
+                        <input class="form-control" id="mailingAddress-street2" formControlName="street2" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('street2')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('street2')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('street2')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('street2')?.errors?.['maxlength']">Street 2 must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-city">City</label>
+                        <input class="form-control" id="mailingAddress-city" formControlName="city" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('city')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('city')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('city')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('city')?.errors?.['required']">City is required</div>
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('city')?.errors?.['maxlength']">City must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-state">State</label>
+                        <input class="form-control" id="mailingAddress-state" formControlName="state" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('state')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('state')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('state')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('state')?.errors?.['required']">State is required</div>
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('state')?.errors?.['maxlength']">State must be 2 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-country">Country</label>
+                        <input class="form-control" id="mailingAddress-country" formControlName="country" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('country')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('country')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('country')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('country')?.errors?.['required']">Country is required</div>
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('country')?.errors?.['maxlength']">Country must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-zipCode">Zip code</label>
+                        <input class="form-control" id="mailingAddress-zipCode" formControlName="zipCode" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.invalid && (profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.dirty || profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.errors?.['required']">Zip code is required</div>
+                            <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row form-group"></div>
+                <fieldset class="row form-group" formGroupName="physicalAddress">
+                    <legend>Physical address</legend>
+                    <div class="col-md-3 visually-hidden">
+                        <label class="form-label" for="physicalAddress-id">Id</label>
+                        <input class="form-control" id="physicalAddress-id" formControlName="id" type="number" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-street1">Street 1</label>
+                        <input class="form-control" id="physicalAddress-street1" formControlName="street1" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('street1')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('street1')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('street1')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('street1')?.errors?.['required']">Street 1 is required</div>
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('street1')?.errors?.['maxlength']">Street 1 must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-street2">Street 2</label>
+                        <input class="form-control" id="physicalAddress-street2" formControlName="street2" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('street2')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('street2')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('street2')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('street2')?.errors?.['maxlength']">Street 2 must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-city">City</label>
+                        <input class="form-control" id="physicalAddress-city" formControlName="city" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('city')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('city')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('city')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('city')?.errors?.['required']">City is required</div>
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('city')?.errors?.['maxlength']">City must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-state">State</label>
+                        <input class="form-control" id="physicalAddress-state" formControlName="state" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('state')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('state')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('state')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('state')?.errors?.['required']">State is required</div>
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('state')?.errors?.['maxlength']">State must be 2 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-country">Country</label>
+                        <input class="form-control" id="physicalAddress-country" formControlName="country" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('country')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('country')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('country')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('country')?.errors?.['required']">Country is required</div>
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('country')?.errors?.['maxlength']">Country must be 50 characters or less</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-zipCode">Zip code</label>
+                        <input class="form-control" id="physicalAddress-zipCode" formControlName="zipCode" type="text" />
+                        <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.invalid && (profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.dirty || profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.touched)">
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.errors?.['required']">Zip code is required</div>
+                            <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row form-group"></div>
+                <h2>Role</h2>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr></tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let roleOptionsItem of (roleOptions | async)?.data">
+                                <td>{{roleOptionsItem.id}}</td>
+                                <td>{{roleOptionsItem.name}}</td>
+                                <td>{{roleOptionsItem.description}}</td>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="themeId">Themeid</label>
+                    <select class="form-select" id="themeId" formControlName="themeId">
+                        <option *ngFor="let themeItem of (themeOptions | async)?.data" value="{{themeItem.id}}">{{themeItem.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="active">Active</label>
+                    <input class="form-check-input" id="active" formControlName="active" type="checkbox" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

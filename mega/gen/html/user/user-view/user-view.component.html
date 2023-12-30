@@ -1,0 +1,191 @@
+<div>
+    <h2>User</h2>
+    <button type="button" (click)="populateRandom()">Populate</button>
+    <button type="button" (click)="onSubmit()">Submit</button>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div>
+                <label for="id">Id</label>
+                <input id="id" formControlName="id" type="number" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div>
+                <label for="firstName">First name</label>
+                <input id="firstName" formControlName="firstName" type="text" />
+                <div class="alert alert-danger" *ngIf="userForm.get('firstName')?.invalid && (userForm.get('firstName')?.dirty || userForm.get('firstName')?.touched)">
+                    <div *ngIf="userForm.get('firstName')?.errors?.['required']">First name is required</div>
+                    <div *ngIf="userForm.get('firstName')?.errors?.['maxLength']">First name is required</div>
+                </div>
+            </div>
+            <div>
+                <label for="lastName">Last name</label>
+                <input id="lastName" formControlName="lastName" type="text" />
+                <div class="alert alert-danger" *ngIf="userForm.get('lastName')?.invalid && (userForm.get('lastName')?.dirty || userForm.get('lastName')?.touched)">
+                    <div *ngIf="userForm.get('lastName')?.errors?.['required']">Last name is required</div>
+                    <div *ngIf="userForm.get('lastName')?.errors?.['maxLength']">Last name is required</div>
+                </div>
+            </div>
+            <div>
+                <label for="username">Username</label>
+                <input [readonly]="true" [disabled]="true" id="username" formControlName="username" type="text" />
+                <div class="alert alert-danger" *ngIf="userForm.get('username')?.invalid && (userForm.get('username')?.dirty || userForm.get('username')?.touched)">
+                    <div *ngIf="userForm.get('username')?.errors?.['maxLength']">Username is required</div>
+                </div>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="text" />
+                <div class="alert alert-danger" *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+                    <div *ngIf="userForm.get('email')?.errors?.['required']">Email is required</div>
+                    <div *ngIf="userForm.get('email')?.errors?.['maxLength']">Email is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div>
+                <label for="createdDate">Created date</label>
+                <input [readonly]="true" [disabled]="true" id="createdDate" formControlName="createdDate" type="datetime-local" />
+                <div class="alert alert-danger" *ngIf="userForm.get('createdDate')?.invalid && (userForm.get('createdDate')?.dirty || userForm.get('createdDate')?.touched)"></div>
+            </div>
+            <div>
+                <label for="lastLoginDate">Last login date</label>
+                <input [readonly]="true" [disabled]="true" id="lastLoginDate" formControlName="lastLoginDate" type="datetime-local" />
+                <div class="alert alert-danger" *ngIf="userForm.get('lastLoginDate')?.invalid && (userForm.get('lastLoginDate')?.dirty || userForm.get('lastLoginDate')?.touched)"></div>
+            </div>
+        </div>
+        <fieldset formGroupName="mailingAddress">
+            <legend>Mailing address</legend>
+            <div class="row form-group">
+                <div>
+                    <label for="mailingAddress-id">Id</label>
+                    <input id="mailingAddress-id" formControlName="id" type="number" />
+                </div>
+                <div>
+                    <label for="mailingAddress-street1">Street 1</label>
+                    <input id="mailingAddress-street1" formControlName="street1" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('street1')?.invalid && (userForm.get('street1')?.dirty || userForm.get('street1')?.touched)">
+                        <div *ngIf="userForm.get('street1')?.errors?.['maxLength']">Street 1 is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mailingAddress-street2">Street 2</label>
+                    <input id="mailingAddress-street2" formControlName="street2" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('street2')?.invalid && (userForm.get('street2')?.dirty || userForm.get('street2')?.touched)">
+                        <div *ngIf="userForm.get('street2')?.errors?.['maxLength']">Street 2 is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mailingAddress-city">City</label>
+                    <input id="mailingAddress-city" formControlName="city" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('city')?.invalid && (userForm.get('city')?.dirty || userForm.get('city')?.touched)">
+                        <div *ngIf="userForm.get('city')?.errors?.['maxLength']">City is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mailingAddress-state">State</label>
+                    <input id="mailingAddress-state" formControlName="state" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('state')?.invalid && (userForm.get('state')?.dirty || userForm.get('state')?.touched)">
+                        <div *ngIf="userForm.get('state')?.errors?.['maxLength']">State is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mailingAddress-country">Country</label>
+                    <input id="mailingAddress-country" formControlName="country" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('country')?.invalid && (userForm.get('country')?.dirty || userForm.get('country')?.touched)">
+                        <div *ngIf="userForm.get('country')?.errors?.['maxLength']">Country is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mailingAddress-zipCode">Zip code</label>
+                    <input id="mailingAddress-zipCode" formControlName="zipCode" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('zipCode')?.invalid && (userForm.get('zipCode')?.dirty || userForm.get('zipCode')?.touched)">
+                        <div *ngIf="userForm.get('zipCode')?.errors?.['maxLength']">Zip code is required</div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset formGroupName="physicalAddress">
+            <legend>Physical address</legend>
+            <div class="row form-group">
+                <div>
+                    <label for="physicalAddress-id">Id</label>
+                    <input id="physicalAddress-id" formControlName="id" type="number" />
+                </div>
+                <div>
+                    <label for="physicalAddress-street1">Street 1</label>
+                    <input id="physicalAddress-street1" formControlName="street1" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('street1')?.invalid && (userForm.get('street1')?.dirty || userForm.get('street1')?.touched)">
+                        <div *ngIf="userForm.get('street1')?.errors?.['maxLength']">Street 1 is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="physicalAddress-street2">Street 2</label>
+                    <input id="physicalAddress-street2" formControlName="street2" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('street2')?.invalid && (userForm.get('street2')?.dirty || userForm.get('street2')?.touched)">
+                        <div *ngIf="userForm.get('street2')?.errors?.['maxLength']">Street 2 is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="physicalAddress-city">City</label>
+                    <input id="physicalAddress-city" formControlName="city" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('city')?.invalid && (userForm.get('city')?.dirty || userForm.get('city')?.touched)">
+                        <div *ngIf="userForm.get('city')?.errors?.['maxLength']">City is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="physicalAddress-state">State</label>
+                    <input id="physicalAddress-state" formControlName="state" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('state')?.invalid && (userForm.get('state')?.dirty || userForm.get('state')?.touched)">
+                        <div *ngIf="userForm.get('state')?.errors?.['maxLength']">State is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="physicalAddress-country">Country</label>
+                    <input id="physicalAddress-country" formControlName="country" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('country')?.invalid && (userForm.get('country')?.dirty || userForm.get('country')?.touched)">
+                        <div *ngIf="userForm.get('country')?.errors?.['maxLength']">Country is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="physicalAddress-zipCode">Zip code</label>
+                    <input id="physicalAddress-zipCode" formControlName="zipCode" type="text" />
+                    <div class="alert alert-danger" *ngIf="userForm.get('zipCode')?.invalid && (userForm.get('zipCode')?.dirty || userForm.get('zipCode')?.touched)">
+                        <div *ngIf="userForm.get('zipCode')?.errors?.['maxLength']">Zip code is required</div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rolesItem of rolesOptions | async">
+                    <td>{{rolesItem.id}}</td>
+                    <td>{{rolesItem.name}}</td>
+                    <td>{{rolesItem.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row form-group">
+            <div>
+                <label for="active">Active</label>
+                <input id="active" formControlName="active" type="checkbox" />
+            </div>
+            <div>
+                <label for="theme">Theme</label>
+                <select id="theme" formControlName="theme">
+                    <option *ngFor="let themeItem of themeOptions | async" value="themeItem.id">{{themeItem.name}}</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="userForm.get('theme')?.invalid && (userForm.get('theme')?.dirty || userForm.get('theme')?.touched)">
+                    <div *ngIf="userForm.get('theme')?.errors?.['maxLength']">Theme is required</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

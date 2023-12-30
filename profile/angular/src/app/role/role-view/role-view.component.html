@@ -1,0 +1,41 @@
+<div>
+    <h2>Role</h2>
+    <form [formGroup]="roleViewForm">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+                <div class="alert alert-danger" *ngIf="roleViewForm.get('id')?.invalid && (roleViewForm.get('id')?.dirty || roleViewForm.get('id')?.touched)">
+                    <div *ngIf="roleViewForm.get('id')?.errors?.['maxlength']">Id must be 10 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" />
+                <div class="alert alert-danger" *ngIf="roleViewForm.get('name')?.invalid && (roleViewForm.get('name')?.dirty || roleViewForm.get('name')?.touched)">
+                    <div *ngIf="roleViewForm.get('name')?.errors?.['maxlength']">Name must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="description">Description</label>
+                <input class="form-control" id="description" formControlName="description" type="text" />
+            </div>
+        </div>
+        <h2>Permissions</h2>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr></tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let permissionsItem of (item.permissions)">
+                        <td>{{permissionsItem.id}}</td>
+                        <td>{{permissionsItem.code}}</td>
+                        <td>{{permissionsItem.description}}</td>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

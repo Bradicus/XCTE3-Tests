@@ -1,0 +1,62 @@
+<div>
+    <h2>Address</h2>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="populateRandom()">Populate</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+    </div>
+    <form [formGroup]="addressEditForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="street1">Street 1</label>
+                <input class="form-control" id="street1" formControlName="street1" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('street1')?.invalid && (addressEditForm.get('street1')?.dirty || addressEditForm.get('street1')?.touched)">
+                    <div *ngIf="addressEditForm.get('street1')?.errors?.['required']">Street 1 is required</div>
+                    <div *ngIf="addressEditForm.get('street1')?.errors?.['maxlength']">Street 1 must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="street2">Street 2</label>
+                <input class="form-control" id="street2" formControlName="street2" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('street2')?.invalid && (addressEditForm.get('street2')?.dirty || addressEditForm.get('street2')?.touched)">
+                    <div *ngIf="addressEditForm.get('street2')?.errors?.['maxlength']">Street 2 must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="city">City</label>
+                <input class="form-control" id="city" formControlName="city" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('city')?.invalid && (addressEditForm.get('city')?.dirty || addressEditForm.get('city')?.touched)">
+                    <div *ngIf="addressEditForm.get('city')?.errors?.['required']">City is required</div>
+                    <div *ngIf="addressEditForm.get('city')?.errors?.['maxlength']">City must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="state">State</label>
+                <input class="form-control" id="state" formControlName="state" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('state')?.invalid && (addressEditForm.get('state')?.dirty || addressEditForm.get('state')?.touched)">
+                    <div *ngIf="addressEditForm.get('state')?.errors?.['required']">State is required</div>
+                    <div *ngIf="addressEditForm.get('state')?.errors?.['maxlength']">State must be 2 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="country">Country</label>
+                <input class="form-control" id="country" formControlName="country" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('country')?.invalid && (addressEditForm.get('country')?.dirty || addressEditForm.get('country')?.touched)">
+                    <div *ngIf="addressEditForm.get('country')?.errors?.['required']">Country is required</div>
+                    <div *ngIf="addressEditForm.get('country')?.errors?.['maxlength']">Country must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="zipCode">Zip code</label>
+                <input class="form-control" id="zipCode" formControlName="zipCode" type="text" />
+                <div class="alert alert-danger" *ngIf="addressEditForm.get('zipCode')?.invalid && (addressEditForm.get('zipCode')?.dirty || addressEditForm.get('zipCode')?.touched)">
+                    <div *ngIf="addressEditForm.get('zipCode')?.errors?.['required']">Zip code is required</div>
+                    <div *ngIf="addressEditForm.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
