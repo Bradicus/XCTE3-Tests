@@ -18,13 +18,13 @@
 				<var name="created date" type="DateTime" readonly="true" />
 				<var name="last login date" type="DateTime" readonly="true" />
 				<!--<var name="theme options" type="Theme" set="List" options="true" />-->
-				<var name="active" type="Boolean" />
+				<var name="active" type="Boolean" default="true"/>
 			</var_group>
 		</var_group>
 
 		<filters pager="server">
 			<sort defaultVar="id" defaultOrder="" />
-			<search type="shared" columns="first name, last name, email"/>
+			<search type="shared" name="search all" columns="first name, last name, email"/>
 			<static_filter column="active" value="true" />
 			<page_filter sizes="5, 25, 50, 100" default="5" />
 		</filters>
@@ -35,12 +35,6 @@
 	  name="profile listing"
 	  path="profile/profile listing"
 		feature_group="profile">
-		<search_by name="first name"/>
-		<search_by name="last name"/>
-		<search_by name="email"/>
-		<paging
-			pager="server"
-			sizes="10,20,50"/>
 		<actions>
 			<action name="view" link="/!{FeatureGroup}/!{FeatureGroup}-user-view" role="user"/>
 			<action name="edit" link="/!{FeatureGroup}/!{FeatureGroup}-admin-edit" role="admin" />
