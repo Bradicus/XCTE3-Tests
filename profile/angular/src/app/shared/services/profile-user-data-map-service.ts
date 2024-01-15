@@ -26,7 +26,7 @@ export class ProfileUserDataMapService {
             this.addressDataMapService.populate(formGroup.get('mailingAddress') as FormGroup, src.mailingAddress);
             this.addressDataMapService.populate(formGroup.get('physicalAddress') as FormGroup, src.physicalAddress);
             formGroup.get("themeId")?.setValue(src.themeId)
-}
-}
+        }
+    }
 }
 

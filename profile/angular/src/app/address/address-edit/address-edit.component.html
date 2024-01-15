@@ -57,6 +57,10 @@
                     <div *ngIf="addressEditForm.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <label class="form-label" for="active">Active</label>
+                <input class="form-check-input" id="active" formControlName="active" type="checkbox" />
+            </div>
         </div>
     </form>
 </div>

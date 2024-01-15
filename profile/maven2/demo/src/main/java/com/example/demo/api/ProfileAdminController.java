@@ -1,5 +1,3 @@
-package com.example.demo.api;
-
 import com.example.demo.dto.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,8 @@ import java.util.*;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDateTime;
+
+package com.example.demo.api;
 
 /**
 * Web API controller
@@ -77,6 +77,6 @@ public class ProfileAdminController {
         
             return null;
         }
-}
+    }
 }
 

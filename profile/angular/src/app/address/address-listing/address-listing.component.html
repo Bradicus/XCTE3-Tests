@@ -24,6 +24,9 @@
                 <th scope="col" style="cursor: pointer" (click)="sortBy('zipCode')">Zip code
                     <i class="bi bi-arrow-bar-down"></i>
                 </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('active')">Active
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -35,12 +38,13 @@
                 <td>{{item.state}}</td>
                 <td>{{item.country}}</td>
                 <td>{{item.zipCode}}</td>
+                <td>{{item.active}}</td>
                 <th></th>
             </tr>
         </tbody>
         <tfoot *ngIf="(page)?.pageCount ?? 0 > 1">
             <tr>
-                <td class="list-group-horizontal" colspan="7">
+                <td class="list-group-horizontal" colspan="8">
                     <ul class="pagination list-group list-group-horizontal">
                         <li>
                             <a class="page-link" style="cursor: pointer" (click)="goToPage(0)">&lt;&lt;</a>

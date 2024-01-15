@@ -20,8 +20,8 @@ export class ThemeViewComponent implements OnInit  {
     
     themeViewForm = new FormGroup({
         id: new FormControl<number>({value: 0, disabled: true}),
-        name: new FormControl<string>('', [Validators.maxLength(50)]),
-        description: new FormControl<string>(''),
+        name: new FormControl<string>({value: '', disabled: true}, [Validators.maxLength(50)]),
+        description: new FormControl<string>({value: '', disabled: true}),
     });
     
     constructor(
@@ -44,7 +44,7 @@ export class ThemeViewComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         

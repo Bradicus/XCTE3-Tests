@@ -22,7 +22,7 @@ export class ProfileAdminDataGenService {
             item.id = 0;
         item.firstName = faker.person.firstName();
         item.lastName = faker.person.lastName();
-        item.pusername = faker.string.alpha(11);
+        item.username = faker.string.alpha(11);
         item.email = faker.person.firstName() + "." + faker.person.lastName() + "@example.com";
         
         item.createdDate = faker.date.recent();
@@ -31,6 +31,6 @@ export class ProfileAdminDataGenService {
         this.addressDataGenService.populateRandom(item.physicalAddress);
         item.themeId = 1;
         item.active = faker.datatype.boolean();
-}
+    }
 }
 

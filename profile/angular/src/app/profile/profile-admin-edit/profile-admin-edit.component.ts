@@ -28,7 +28,7 @@ export class ProfileAdminEditComponent implements OnInit  {
         id: new FormControl<number>(0),
         firstName: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
         lastName: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
-        pusername: new FormControl<string>('', [Validators.maxLength(255)]),
+        username: new FormControl<string>('', [Validators.maxLength(255)]),
         email: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
         
         createdDate: new FormControl<Date>(new Date()),
@@ -41,6 +41,7 @@ export class ProfileAdminEditComponent implements OnInit  {
             state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
             country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
             zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>(false),
         }),
         physicalAddress: new FormGroup({
             id: new FormControl<number>(0),
@@ -50,6 +51,7 @@ export class ProfileAdminEditComponent implements OnInit  {
             state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
             country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
             zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>(false),
         }),
         roles: new FormArray([]),
         themeId: new FormControl<number>(0),
@@ -84,7 +86,7 @@ export class ProfileAdminEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         
@@ -100,14 +102,14 @@ export class ProfileAdminEditComponent implements OnInit  {
                 this.profileAdminDataStoreService.create(this.profileAdminEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.profileAdminDataStoreService.update(this.profileAdminEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

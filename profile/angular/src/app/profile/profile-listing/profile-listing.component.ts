@@ -27,7 +27,7 @@ export class ProfileListingComponent implements OnInit  {
             debounceTime(250),
             distinctUntilChanged())
         .subscribe((p) =>  { this.goToPage(0); });
-}
+    }
     
     ngOnInit() {
         this.updatePageData();
@@ -44,7 +44,7 @@ export class ProfileListingComponent implements OnInit  {
             this.pageReq.pageNum = this.page.pageNum;
             this.pageReq.pageSize = this.page.pageSize;
         });
-}
+    }
     
     goToPage(pageNum: number) {
         this.pageReq.pageNum = pageNum;

@@ -1,5 +1,3 @@
-package com.example.demo.api;
-
 import com.example.demo.dto.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +15,8 @@ import com.example.demo.data.*;
 import com.example.demo.mapper.*;
 import java.util.*;
 import java.time.LocalDateTime;
+
+package com.example.demo.api;
 
 /**
 * Web API controller
@@ -53,7 +53,7 @@ public class ProfileListingController {
         
         PageRequest pageRequest = Filter.getPageRequest(pageNum, pageSize, sort);
         Page<Profile> items;
-        items = profileDataStore.findByActive(pageRequest);
+        items = profileDataStore.searchAll(pageRequest, searchValue, searchValue, searchValue);
         
         var mappedItems = items.map(item -> mapper.mapToProfileListing(item));
         var response = new FilteredPageRespTpl<ProfileListing>();

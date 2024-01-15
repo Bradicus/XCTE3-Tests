@@ -20,8 +20,8 @@ export class PermissionViewComponent implements OnInit  {
     
     permissionViewForm = new FormGroup({
         id: new FormControl<number>({value: 0, disabled: true}, [Validators.maxLength(10)]),
-        code: new FormControl<string>('', [Validators.maxLength(50)]),
-        description: new FormControl<string>(''),
+        code: new FormControl<string>({value: '', disabled: true}, [Validators.maxLength(50)]),
+        description: new FormControl<string>({value: '', disabled: true}),
     });
     
     constructor(
@@ -44,7 +44,7 @@ export class PermissionViewComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         

@@ -51,7 +51,7 @@ export class RoleEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         this.permissionOptions = this.permissionDataStoreService.listing(this.permissionOptionsReq);
@@ -65,14 +65,14 @@ export class RoleEditComponent implements OnInit  {
                 this.roleDataStoreService.create(this.roleEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.roleDataStoreService.update(this.roleEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

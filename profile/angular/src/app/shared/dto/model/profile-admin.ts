@@ -9,7 +9,7 @@ export class ProfileAdmin {
     id: number = 0;
     firstName: string = "";
     lastName: string = "";
-    pusername: string = "";
+    username: string = "";
     email: string = "";
     
     createdDate: Date = new Date();

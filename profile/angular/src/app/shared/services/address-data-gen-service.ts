@@ -23,6 +23,7 @@ export class AddressDataGenService {
         item.state = faker.location.state({ abbreviated: true });
         item.country = faker.location.country();
         item.zipCode = faker.location.zipCode();
+        item.active = faker.datatype.boolean();
     }
 }
 

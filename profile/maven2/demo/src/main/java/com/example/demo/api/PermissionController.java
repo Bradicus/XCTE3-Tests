@@ -1,5 +1,3 @@
-package com.example.demo.api;
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +14,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
 import com.example.demo.dto.FilteredPageRespTpl;
 import com.example.demo.util.*;
+
+package com.example.demo.api;
 
 /**
 * Web API controller
@@ -63,7 +63,7 @@ public class PermissionController {
         
             return null;
         }
-}
+    }
     
     /*
     * Web API get many permission
@@ -111,6 +111,6 @@ public class PermissionController {
         
             return null;
         }
-}
+    }
 }
 

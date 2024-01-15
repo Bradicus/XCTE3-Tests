@@ -49,7 +49,7 @@
                 <select class="form-select" id="themeId" formControlName="themeId"></select>
             </div>
         </div>
-        <fieldset formGroupName="mailingAddress">
+        <fieldset class="row form-group" formGroupName="mailingAddress">
             <legend>Mailing address</legend>
             <div class="col-md-3 visually-hidden">
                 <label class="form-label" for="mailingAddress-id">Id</label>
@@ -102,9 +102,13 @@
                     <div *ngIf="profileUserViewForm.get('mailingAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <label class="form-label" for="mailingAddress-active">Active</label>
+                <input class="form-check-input" id="mailingAddress-active" formControlName="active" type="checkbox" />
+            </div>
         </fieldset>
         <div class="row form-group"></div>
-        <fieldset formGroupName="physicalAddress">
+        <fieldset class="row form-group" formGroupName="physicalAddress">
             <legend>Physical address</legend>
             <div class="col-md-3 visually-hidden">
                 <label class="form-label" for="physicalAddress-id">Id</label>
@@ -156,6 +160,10 @@
                     <div *ngIf="profileUserViewForm.get('physicalAddress')?.get('zipCode')?.errors?.['required']">Zip code is required</div>
                     <div *ngIf="profileUserViewForm.get('physicalAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
                 </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="physicalAddress-active">Active</label>
+                <input class="form-check-input" id="physicalAddress-active" formControlName="active" type="checkbox" />
             </div>
         </fieldset>
         <div class="row form-group"></div>

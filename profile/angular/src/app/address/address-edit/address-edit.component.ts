@@ -27,6 +27,7 @@ export class AddressEditComponent implements OnInit  {
         state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
         country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
         zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+        active: new FormControl<boolean>(false),
     });
     
     constructor(
@@ -49,7 +50,7 @@ export class AddressEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         
@@ -62,14 +63,14 @@ export class AddressEditComponent implements OnInit  {
                 this.addressDataStoreService.create(this.addressEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.addressDataStoreService.update(this.addressEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

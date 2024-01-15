@@ -28,6 +28,6 @@ export class ProfileUserDataGenService {
         this.addressDataGenService.populateRandom(item.mailingAddress);
         this.addressDataGenService.populateRandom(item.physicalAddress);
         item.themeId = 1;
-}
+    }
 }
 

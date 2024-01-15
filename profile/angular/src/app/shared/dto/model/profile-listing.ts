@@ -12,6 +12,6 @@ export class ProfileListing {
     
     createdDate: Date = new Date();
     lastLoginDate: Date = new Date();
-    active: boolean = false;
+    active: boolean = true;
 }
 

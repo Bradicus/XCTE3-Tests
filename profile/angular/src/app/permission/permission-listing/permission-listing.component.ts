@@ -35,7 +35,7 @@ export class PermissionListingComponent implements OnInit  {
             this.pageReq.pageNum = this.page.pageNum;
             this.pageReq.pageSize = this.page.pageSize;
         });
-}
+    }
     
     goToPage(pageNum: number) {
         this.pageReq.pageNum = pageNum;

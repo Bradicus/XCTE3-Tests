@@ -1,5 +1,17 @@
 <project>
-<!--  <generate language="csharp" tpl_path="templates" dest="./csharp_razor" /> -->
+  <generate language="csharp" tpl_path="templates" dest="./csharp_razor"> 
+    <build_vars>
+      <build_var name="ControllerNs" value="XCTE.Profile.Profile" />
+      <build_var name="ControllerPath" value="XCTE.Profile.Web/Controllers" />
+      <build_var name="DataModelNs" value="XCTE.Profile.Core/Profile.Model" />
+      <build_var name="DtoModelNs" value="XCTE.Profile.Dto" />
+      <build_var name="DataModelPlugin" value="class_standard" />
+      <build_var name="DataModelPath" value="XCTE.Profile.Base/Data.Model" />
+      <build_var name="DtoModelPath" value="XCTE.Profile.Base/Dto" />
+      <build_var name="EditModelPath" value="XCTE.Profile.Base/Dto" />
+      <build_var name="EditModelNs" value="XCTE.Profile.Dto" />
+    </build_vars>
+  </generate>
   <generate language="typescript" tpl_path="templates" dest="./angular/src/app">
     <xdep name="angular" version="14">
       <validation name="basic" />

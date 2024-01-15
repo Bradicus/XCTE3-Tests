@@ -23,29 +23,31 @@ export class ProfileUserViewComponent implements OnInit  {
     
     profileUserViewForm = new FormGroup({
         id: new FormControl<number>({value: 0, disabled: true}),
-        firstName: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
-        lastName: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
-        email: new FormControl<string>('', [Validators.required, Validators.maxLength(255)]),
+        firstName: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]),
+        lastName: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]),
+        email: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]),
         
-        createdDate: new FormControl<Date>(new Date()),
-        lastLoginDate: new FormControl<Date>(new Date()),
+        createdDate: new FormControl<Date>({value: new Date(), disabled: true}),
+        lastLoginDate: new FormControl<Date>({value: new Date(), disabled: true}),
         mailingAddress: new FormGroup({
             id: new FormControl<number>({value: 0, disabled: true}),
-            street1: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            street2: new FormControl<string>('', [Validators.maxLength(50)]),
-            city: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
-            country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            street1: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            street2: new FormControl<string>({value: '', disabled: true}, [Validators.maxLength(50)]),
+            city: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            state: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(2)]),
+            country: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            zipCode: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>({value: false, disabled: true}),
         }),
         physicalAddress: new FormGroup({
             id: new FormControl<number>({value: 0, disabled: true}),
-            street1: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            street2: new FormControl<string>('', [Validators.maxLength(50)]),
-            city: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
-            country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
-            zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            street1: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            street2: new FormControl<string>({value: '', disabled: true}, [Validators.maxLength(50)]),
+            city: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            state: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(2)]),
+            country: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(50)]),
+            zipCode: new FormControl<string>({value: '', disabled: true}, [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>({value: false, disabled: true}),
         }),
         themeId: new FormControl<number>({value: 0, disabled: true}),
         
@@ -75,7 +77,7 @@ export class ProfileUserViewComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         

@@ -23,7 +23,7 @@ export class ProfileListingDataMapService {
             formGroup.get("createdDate")?.setValue(src.createdDate?.toISOString().slice(0, -1))
             formGroup.get("lastLoginDate")?.setValue(src.lastLoginDate?.toISOString().slice(0, -1))
             formGroup.get("active")?.setValue(src.active)
-}
-}
+        }
+    }
 }
 

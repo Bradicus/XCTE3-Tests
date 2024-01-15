@@ -45,7 +45,7 @@ export class PermissionEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         
@@ -58,14 +58,14 @@ export class PermissionEditComponent implements OnInit  {
                 this.permissionDataStoreService.create(this.permissionEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.permissionDataStoreService.update(this.permissionEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

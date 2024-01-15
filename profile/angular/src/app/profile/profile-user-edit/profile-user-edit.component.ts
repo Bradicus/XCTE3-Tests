@@ -38,6 +38,7 @@ export class ProfileUserEditComponent implements OnInit  {
             state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
             country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
             zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>(false),
         }),
         physicalAddress: new FormGroup({
             id: new FormControl<number>(0),
@@ -47,6 +48,7 @@ export class ProfileUserEditComponent implements OnInit  {
             state: new FormControl<string>('', [Validators.required, Validators.maxLength(2)]),
             country: new FormControl<string>('', [Validators.required, Validators.maxLength(50)]),
             zipCode: new FormControl<string>('', [Validators.required, Validators.maxLength(20)]),
+            active: new FormControl<boolean>(false),
         }),
         themeId: new FormControl<number>(0),
         
@@ -76,7 +78,7 @@ export class ProfileUserEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         
@@ -91,14 +93,14 @@ export class ProfileUserEditComponent implements OnInit  {
                 this.profileUserDataStoreService.create(this.profileUserEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.profileUserDataStoreService.update(this.profileUserEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

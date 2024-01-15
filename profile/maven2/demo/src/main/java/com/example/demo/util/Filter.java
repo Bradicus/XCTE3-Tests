@@ -1,7 +1,7 @@
-package com.example.demo.util;
-
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+
+package com.example.demo.util;
 
 /**
 * @class Filter
@@ -35,7 +35,7 @@ public class Filter {
             
                 sort = sort.descending();
             }
-}
+        }
         
         return sort;
     }

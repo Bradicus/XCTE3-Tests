@@ -25,6 +25,6 @@ export class ProfileListingDataGenService {
         item.createdDate = faker.date.recent();
         item.lastLoginDate = faker.date.recent();
         item.active = faker.datatype.boolean();
-}
+    }
 }
 

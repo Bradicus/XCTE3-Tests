@@ -45,7 +45,7 @@ export class ThemeEditComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         
@@ -58,14 +58,14 @@ export class ThemeEditComponent implements OnInit  {
                 this.themeDataStoreService.create(this.themeEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-} else {
+            } else {
             
                 this.themeDataStoreService.update(this.themeEditForm.value).subscribe(newItem =>  {
                     this.item = newItem;
                 });
-}
-}
-}
+            }
+        }
+    }
     
     onExit() {
     }

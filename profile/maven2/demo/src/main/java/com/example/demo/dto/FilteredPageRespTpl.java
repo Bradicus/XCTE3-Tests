@@ -1,6 +1,6 @@
-package com.example.demo.dto;
-
 import java.util.List;
+
+package com.example.demo.dto;
 
 /**
 * @class FilteredPageRespTpl

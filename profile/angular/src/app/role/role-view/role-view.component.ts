@@ -22,8 +22,8 @@ export class RoleViewComponent implements OnInit  {
     
     roleViewForm = new FormGroup({
         id: new FormControl<number>({value: 0, disabled: true}, [Validators.maxLength(10)]),
-        name: new FormControl<string>('', [Validators.maxLength(50)]),
-        description: new FormControl<string>(''),
+        name: new FormControl<string>({value: '', disabled: true}, [Validators.maxLength(50)]),
+        description: new FormControl<string>({value: '', disabled: true}),
         permissions: new FormArray([]),
     });
     permissionOptions: Observable<FilteredPageRespTpl<Permission>> = new Observable<FilteredPageRespTpl<Permission>>;
@@ -50,7 +50,7 @@ export class RoleViewComponent implements OnInit  {
                     this.item = data;
                     this.populate();
                 }});
-}
+            }
             
         });
         this.permissionOptions = this.permissionDataStoreService.listing(this.permissionOptionsReq);

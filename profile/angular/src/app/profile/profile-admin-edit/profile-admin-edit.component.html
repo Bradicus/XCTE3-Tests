@@ -28,10 +28,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label" for="pusername">Pusername</label>
-                    <input class="form-control" [readonly]="true" id="pusername" formControlName="pusername" type="text" />
-                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('pusername')?.invalid && (profileAdminEditForm.get('pusername')?.dirty || profileAdminEditForm.get('pusername')?.touched)">
-                        <div *ngIf="profileAdminEditForm.get('pusername')?.errors?.['maxlength']">Pusername must be 255 characters or less</div>
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" [readonly]="true" id="username" formControlName="username" type="text" />
+                    <div class="alert alert-danger" *ngIf="profileAdminEditForm.get('username')?.invalid && (profileAdminEditForm.get('username')?.dirty || profileAdminEditForm.get('username')?.touched)">
+                        <div *ngIf="profileAdminEditForm.get('username')?.errors?.['maxlength']">Username must be 255 characters or less</div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -107,6 +107,10 @@
                             <div *ngIf="profileAdminEditForm.get('mailingAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="mailingAddress-active">Active</label>
+                        <input class="form-check-input" id="mailingAddress-active" formControlName="active" type="checkbox" />
+                    </div>
                 </fieldset>
                 <div class="row form-group"></div>
                 <fieldset class="row form-group" formGroupName="physicalAddress">
@@ -161,6 +165,10 @@
                             <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.errors?.['required']">Zip code is required</div>
                             <div *ngIf="profileAdminEditForm.get('physicalAddress')?.get('zipCode')?.errors?.['maxlength']">Zip code must be 20 characters or less</div>
                         </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="physicalAddress-active">Active</label>
+                        <input class="form-check-input" id="physicalAddress-active" formControlName="active" type="checkbox" />
                     </div>
                 </fieldset>
                 <div class="row form-group"></div>

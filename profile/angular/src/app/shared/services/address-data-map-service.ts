@@ -21,7 +21,8 @@ export class AddressDataMapService {
             formGroup.get("state")?.setValue(src.state)
             formGroup.get("country")?.setValue(src.country)
             formGroup.get("zipCode")?.setValue(src.zipCode)
+            formGroup.get("active")?.setValue(src.active)
         }
-}
+    }
 }
 
