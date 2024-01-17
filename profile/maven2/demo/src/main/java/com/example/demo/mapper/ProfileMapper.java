@@ -1,13 +1,13 @@
+package com.example.demo.mapper;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 import org.springframework.data.domain.Page;
 import java.util.List;
-import com.example.demo.db_model.*;
+import com.example.demo.db.model.*;
 import com.example.demo.dto.*;
 import java.time.LocalDateTime;
-
-package com.example.demo.mapper;
 
 @Mapper
 public interface ProfileMapper {

@@ -1,3 +1,5 @@
+package com.example.demo.api;
+
 import com.example.demo.dto.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +12,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
 import com.example.demo.dto.FilteredPageRespTpl;
 import com.example.demo.util.*;
-import com.example.demo.db_model.*;
-import com.example.demo.data.*;
+import com.example.demo.db.model.*;
+import com.example.demo.db.store.*;
 import com.example.demo.mapper.*;
 import java.util.*;
 import java.time.LocalDateTime;
-
-package com.example.demo.api;
 
 /**
 * Web API controller

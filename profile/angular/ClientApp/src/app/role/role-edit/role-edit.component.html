@@ -1,0 +1,45 @@
+<div>
+    <h2>Role</h2>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="populateRandom()">Populate</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+    </div>
+    <form [formGroup]="roleEditForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+                <div class="alert alert-danger" *ngIf="roleEditForm.get('id')?.invalid && (roleEditForm.get('id')?.dirty || roleEditForm.get('id')?.touched)">
+                    <div *ngIf="roleEditForm.get('id')?.errors?.['maxlength']">Id must be 10 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" />
+                <div class="alert alert-danger" *ngIf="roleEditForm.get('name')?.invalid && (roleEditForm.get('name')?.dirty || roleEditForm.get('name')?.touched)">
+                    <div *ngIf="roleEditForm.get('name')?.errors?.['maxlength']">Name must be 50 characters or less</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="description">Description</label>
+                <input class="form-control" id="description" formControlName="description" type="text" />
+            </div>
+            <h2>Permission</h2>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let permissionOptionsItem of (permissionOptions | async)?.data">
+                            <td>{{permissionOptionsItem.id}}</td>
+                            <td>{{permissionOptionsItem.code}}</td>
+                            <td>{{permissionOptionsItem.description}}</td>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

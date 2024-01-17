@@ -2,12 +2,15 @@
   <generate language="csharp" tpl_path="templates" dest="./csharp_razor"> 
     <build_vars>
       <build_var name="ControllerNs" value="XCTE.Profile.Profile" />
-      <build_var name="ControllerPath" value="XCTE.Profile.Web/Controllers" />
-      <build_var name="DataModelNs" value="XCTE.Profile.Core/Profile.Model" />
-      <build_var name="DtoModelNs" value="XCTE.Profile.Dto" />
-      <build_var name="DataModelPlugin" value="class_standard" />
-      <build_var name="DataModelPath" value="XCTE.Profile.Base/Data.Model" />
+      <build_var name="ControllerPath" value="XCTE.Profile.Web/Controllers" />      
+      
+      <build_var name="DtoModelNs" value="XCTE.Profile.Base.Dto" />
       <build_var name="DtoModelPath" value="XCTE.Profile.Base/Dto" />
+      
+      <build_var name="DataModelPlugin" value="class_db_entity" />
+      <build_var name="DataModelNs" value="XCTE.Profile.Base.DB.Model" />
+      <build_var name="DataModelPath" value="XCTE.Profile.Base/DB/Model" />      
+      
       <build_var name="EditModelPath" value="XCTE.Profile.Base/Dto" />
       <build_var name="EditModelNs" value="XCTE.Profile.Dto" />
     </build_vars>
@@ -37,11 +40,17 @@
     <build_vars>
       <build_var name="ControllerNs" value="com.example.demo.api" />
       <build_var name="ControllerPath" value="api" />
-      <build_var name="DataModelNs" value="com.example.demo.db_model" />
+            
       <build_var name="DtoModelNs" value="com.example.demo.dto" />
-      <build_var name="DataModelPlugin" value="class_jpa_entity" />
-      <build_var name="DataModelPath" value="db_model" />
       <build_var name="DtoModelPath" value="dto" />
+      
+      <build_var name="GenDataNs" value="com.example.demo.gen" />
+      <build_var name="GenDataPath" value="gen" />
+      
+      <build_var name="DataModelPlugin" value="class_db_entity" />
+      <build_var name="DataModelNs" value="com.example.demo.db" />
+      <build_var name="DataModelPath" value="db" />
+      
       <build_var name="EditModelPath" value="dto" />
       <build_var name="EditModelNs" value="com.example.demo.dto" />
     </build_vars>

@@ -1,8 +1,8 @@
-import com.example.demo.db_model.*;
+package com.example.demo.dto;
+
+import com.example.demo.db.model.*;
 import java.util.*;
 import java.time.LocalDateTime;
-
-package com.example.demo.dto;
 
 /**
 * @class ProfileAdmin
