@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model name="utils each var params" >
+
+	<description>
+	Parameters to each val function in utilities
+	</description>
+
+	<gen_class type="standard" ns="params" path="params">
+	</gen_class>
+
+	<var_group genGet="true" genSet="true">
+		<var name="cls"		type="nil" />
+		<var name="bld"			type="nil" />
+		<var name="separateGroups"		type="false" />
+		<var name="varCb"	note="Callback for each variable processed"	type="Function" default="null" />
+		<var name="bgCb"	note=""	type="Function" default="null" />
+		<var name="agCb"	note=""	type="Function" default="null" />
+	</var_group>
+
+	  @cls = nil
+  @bld = nil
+  @separateGroups
+  @varCb
+  @bgCb = nil
+  @agCb = nil
+
+</model>

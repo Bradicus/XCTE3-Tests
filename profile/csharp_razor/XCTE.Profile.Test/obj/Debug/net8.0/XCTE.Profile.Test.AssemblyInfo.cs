@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XCTE.Profile.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cea5fd29484a09db95f4e6d8a0bf3abcf8490ec3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8add92a4e05c6153c544609550fc110817772d5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("XCTE.Profile.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XCTE.Profile.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

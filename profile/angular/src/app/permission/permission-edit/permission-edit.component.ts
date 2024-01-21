@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
 import { Permission } from '../../shared/dto/model/permission';
@@ -29,7 +29,8 @@ export class PermissionEditComponent implements OnInit  {
             private permissionDataStoreService: PermissionDataStoreService,
             private permissionDataGenService: PermissionDataGenService,
             private permissionDataMapService: PermissionDataMapService,
-            private route: ActivatedRoute) {
+            private route: ActivatedRoute,
+            private router: Router) {
     }
     
     ngOnInit() {
@@ -39,6 +40,7 @@ export class PermissionEditComponent implements OnInit  {
             
             if (!this.item?.id) {
                 this.item = new Permission;
+                this.populate();
             } else {
             
                 this.permissionDataStoreService.detail(this.item.id).subscribe(data => { {
@@ -56,7 +58,7 @@ export class PermissionEditComponent implements OnInit  {
         if (!this.permissionEditForm.invalid) {
             if (this.permissionEditForm.controls['id'].value === null || !(this.permissionEditForm.controls['id'].value > 0)) {
                 this.permissionDataStoreService.create(this.permissionEditForm.value).subscribe(newItem =>  {
-                    this.item = newItem;
+                    this.router.navigate(["/","permission","permission-listing"]);
                 });
             } else {
             

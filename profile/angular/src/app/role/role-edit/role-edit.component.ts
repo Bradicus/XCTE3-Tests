@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
 import { Permission } from '../../shared/dto/model/permission';
@@ -35,7 +35,8 @@ export class RoleEditComponent implements OnInit  {
             private roleDataGenService: RoleDataGenService,
             private roleDataMapService: RoleDataMapService,
             private permissionDataStoreService: PermissionDataStoreService,
-            private route: ActivatedRoute) {
+            private route: ActivatedRoute,
+            private router: Router) {
     }
     
     ngOnInit() {
@@ -45,6 +46,7 @@ export class RoleEditComponent implements OnInit  {
             
             if (!this.item?.id) {
                 this.item = new Role;
+                this.populate();
             } else {
             
                 this.roleDataStoreService.detail(this.item.id).subscribe(data => { {
@@ -63,7 +65,7 @@ export class RoleEditComponent implements OnInit  {
         if (!this.roleEditForm.invalid) {
             if (this.roleEditForm.controls['id'].value === null || !(this.roleEditForm.controls['id'].value > 0)) {
                 this.roleDataStoreService.create(this.roleEditForm.value).subscribe(newItem =>  {
-                    this.item = newItem;
+                    this.router.navigate(["/","role","role-listing"]);
                 });
             } else {
             

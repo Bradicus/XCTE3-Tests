@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
 import { Address } from '../../shared/dto/model/address';
@@ -70,7 +70,8 @@ export class ProfileAdminEditComponent implements OnInit  {
             private profileAdminDataMapService: ProfileAdminDataMapService,
             private roleDataStoreService: RoleDataStoreService,
             private themeDataStoreService: ThemeDataStoreService,
-            private route: ActivatedRoute) {
+            private route: ActivatedRoute,
+            private router: Router) {
     }
     
     ngOnInit() {
@@ -80,6 +81,7 @@ export class ProfileAdminEditComponent implements OnInit  {
             
             if (!this.item?.id) {
                 this.item = new ProfileAdmin;
+                this.populate();
             } else {
             
                 this.profileAdminDataStoreService.detail(this.item.id).subscribe(data => { {
@@ -100,7 +102,7 @@ export class ProfileAdminEditComponent implements OnInit  {
         if (!this.profileAdminEditForm.invalid) {
             if (this.profileAdminEditForm.controls['id'].value === null || !(this.profileAdminEditForm.controls['id'].value > 0)) {
                 this.profileAdminDataStoreService.create(this.profileAdminEditForm.value).subscribe(newItem =>  {
-                    this.item = newItem;
+                    this.router.navigate(["/","profile","profile-admin-edit", newItem.id]);
                 });
             } else {
             

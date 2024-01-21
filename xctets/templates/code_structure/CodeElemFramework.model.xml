@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model name="code elem framework" >
+
+	<description>
+	Framework
+	</description>
+				
+	<gen_class type="standard" ns="code structure" path="code structure">
+	</gen_class>
+
+	<var_group genGet="true" genSet="true">
+		<var name="name"		type="String" />
+		<var name="version"		type="String" />
+	</var_group>		
+	
+</model>

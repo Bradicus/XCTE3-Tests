@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model name="utils each fun params" >
+
+	<description>
+	Parameters to each val function in utilities
+	</description>
+
+	<gen_class type="standard" ns="params" path="params">
+	</gen_class>
+
+	<var_group genGet="true" genSet="true">
+		<var name="cls"		type="Function" default="null" />
+		<var name="bld"		type="Function" default="null" />
+		<var name="funCb"	note="Callback for each function processed"	type="Function" default="null"/>
+	</var_group>
+
+</model>

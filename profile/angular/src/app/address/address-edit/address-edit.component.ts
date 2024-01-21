@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
 import { Address } from '../../shared/dto/model/address';
@@ -34,7 +34,8 @@ export class AddressEditComponent implements OnInit  {
             private addressDataStoreService: AddressDataStoreService,
             private addressDataGenService: AddressDataGenService,
             private addressDataMapService: AddressDataMapService,
-            private route: ActivatedRoute) {
+            private route: ActivatedRoute,
+            private router: Router) {
     }
     
     ngOnInit() {
@@ -44,6 +45,7 @@ export class AddressEditComponent implements OnInit  {
             
             if (!this.item?.id) {
                 this.item = new Address;
+                this.populate();
             } else {
             
                 this.addressDataStoreService.detail(this.item.id).subscribe(data => { {
@@ -61,7 +63,7 @@ export class AddressEditComponent implements OnInit  {
         if (!this.addressEditForm.invalid) {
             if (this.addressEditForm.controls['id'].value === null || !(this.addressEditForm.controls['id'].value > 0)) {
                 this.addressDataStoreService.create(this.addressEditForm.value).subscribe(newItem =>  {
-                    this.item = newItem;
+                    this.router.navigate(["/","address","address-listing"]);
                 });
             } else {
             

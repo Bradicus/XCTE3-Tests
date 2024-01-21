@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faker } from '@faker-js/faker';
 import { Observable, of } from 'rxjs';
 import { Theme } from '../../shared/dto/model/theme';
@@ -29,7 +29,8 @@ export class ThemeEditComponent implements OnInit  {
             private themeDataStoreService: ThemeDataStoreService,
             private themeDataGenService: ThemeDataGenService,
             private themeDataMapService: ThemeDataMapService,
-            private route: ActivatedRoute) {
+            private route: ActivatedRoute,
+            private router: Router) {
     }
     
     ngOnInit() {
@@ -39,6 +40,7 @@ export class ThemeEditComponent implements OnInit  {
             
             if (!this.item?.id) {
                 this.item = new Theme;
+                this.populate();
             } else {
             
                 this.themeDataStoreService.detail(this.item.id).subscribe(data => { {
@@ -56,7 +58,7 @@ export class ThemeEditComponent implements OnInit  {
         if (!this.themeEditForm.invalid) {
             if (this.themeEditForm.controls['id'].value === null || !(this.themeEditForm.controls['id'].value > 0)) {
                 this.themeDataStoreService.create(this.themeEditForm.value).subscribe(newItem =>  {
-                    this.item = newItem;
+                    this.router.navigate(["/","theme","theme-listing"]);
                 });
             } else {
             
