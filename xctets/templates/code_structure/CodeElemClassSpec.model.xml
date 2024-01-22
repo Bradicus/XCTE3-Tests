@@ -16,14 +16,14 @@
 		<var name="language"		type="String" default="nil" />
 		<var name="includes"		utype="code elem include" set="List" />
 		<var name="uses"			utype="code elem use" set="List" />
-		<var name="gen cfg"			utype="project component" default="pComp" />		
+		<var name="gen cfg"			utype="project elem" nullable="true" default="null" />		
 		<var name="functions"		utype="code elem function" set="List" />
 		<var name="base classes"	utype="code elem class spec" set="List" />
-		<var name="interfaces"		utype="code elem interface" set="List" />
+		<var name="interfaces"		utype="code elem class spec" set="List" />
 		<var name="injections"		utype="code elem variable" set="List" />
 		<var name="interface namespace"	utype="code elem namespace" />
 		<var name="test namespace"	utype="code elem namespace" />
-		<var name="template params"	utype="code elem class gen" set="List" />
+		<var name="template params"	utype="code elem class spec" set="List" />
 		<var name="var prefix"		type="String" default="" />
 		<var name="pre defs"			type="String" set="List" />
 		<var name="file path"			type="String" default="" />

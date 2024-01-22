@@ -4,10 +4,10 @@
 */
 
 export class CodeElemVariable {
-    vtype: string;
-    templateType: string;
-    defaultValue: string;
-    construct: string;
+    vtype: string = "";
+    templateType: string = "";
+    defaultValue: string = "null";
+    construct: boolean = false;
     comment: string = "";
     isVirtual: boolean = false;
     isConst: boolean = false;

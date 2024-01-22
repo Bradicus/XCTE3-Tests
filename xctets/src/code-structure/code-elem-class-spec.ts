@@ -1,6 +1,9 @@
+import { CodeElemFunction } from './code-elem-function';
+import { CodeElemInclude } from './code-elem-include';
 import { CodeElemNamespace } from './code-elem-namespace';
 import { CodeElemUse } from './code-elem-use';
 import { CodeElemVariable } from './code-elem-variable';
+import { ProjectElem } from './project-elem';
 /**
 * @class CodeElemClassSpec
 * 
@@ -14,14 +17,14 @@ export class CodeElemClassSpec {
     language: string = "nil";
     includes: CodeElemInclude[] = [];
     uses: CodeElemUse[] = [];
-    genCfg: ProjectComponent = pComp;
+    genCfg: ProjectElem | null = null;
     functions: CodeElemFunction[] = [];
     baseClasses: CodeElemClassSpec[] = [];
-    interfaces: CodeElemInterface[] = [];
+    interfaces: CodeElemClassSpec[] = [];
     injections: CodeElemVariable[] = [];
     interfaceNamespace: CodeElemNamespace = new CodeElemNamespace();
     testNamespace: CodeElemNamespace = new CodeElemNamespace();
-    templateParams: CodeElemClassGen[] = [];
+    templateParams: CodeElemClassSpec[] = [];
     varPrefix: string = "";
     preDefs: string[] = [];
     filePath: string = "";

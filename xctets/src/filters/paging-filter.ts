@@ -4,8 +4,8 @@
 */
 
 export class PagingFilter {
-    pageSizes: int32[] = [];
+    pageSizes: number[] = [];
     pager: string = "none";
-    pageSizeDefault: int32 = 10;
+    pageSizeDefault: number = 10;
 }
 

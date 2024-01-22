@@ -4,8 +4,8 @@
 */
 
 export class CodeElemLibraryDependency {
-    name: string;
-    versionMin: string;
-    versionMax: string;
+    name: string = "null";
+    versionMin: string = "null";
+    versionMax: string = "null";
 }
 

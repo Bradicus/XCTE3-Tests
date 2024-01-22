@@ -4,7 +4,7 @@
 */
 
 export class Accessor {
-    hasGet: string;
-    hasSet: string;
+    hasGet: string = "";
+    hasSet: string = "";
 }
 

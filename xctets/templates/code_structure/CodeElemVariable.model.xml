@@ -7,12 +7,12 @@
 		</description>
 	</gen_class>
 				
-	<var_group virtual="true" genGet="true" genSet="true">
+	<var_group virtual="true" genGet="true" genSet="true" construct="true">
 		<var name="vtype" 		 type="String" />
 		<var name="templateType" type="String" />
-		<var name="defaultValue" type="String" />
-		<var name="construct" type="String" />
-		<var name="comment" default = "" type="String" />
+		<var name="defaultValue" type="String" default="null" />
+		<var name="construct" type="Boolean" default="false" />
+		<var name="comment" type="String" />
 		<var name="is virtual" default = "false" type="Boolean" />
 		<var name="is const" default = "false" type="Boolean" />
 		<var name="is static" default = "false" type="Boolean" />

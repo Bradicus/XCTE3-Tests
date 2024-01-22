@@ -9,19 +9,12 @@
 	</gen_class>
 
 	<var_group genGet="true" genSet="true">
-		<var name="cls"		type="nil" />
-		<var name="bld"			type="nil" />
-		<var name="separateGroups"		type="false" />
-		<var name="varCb"	note="Callback for each variable processed"	type="Function" default="null" />
-		<var name="bgCb"	note=""	type="Function" default="null" />
-		<var name="agCb"	note=""	type="Function" default="null" />
+		<var name="cls"		utype="code elem class spec" nullable="true" default="null"/>
+		<var name="bld"		utype="source renderer" ns="plugin base" nullable="true" default="null"/>
+		<var name="separate groups"		type="Boolean" default="false" />
+		<var name="var fun"	type="Function" nullable="true" default="null" note="Callback for each variable processed"	 />
+		<var name="before fun"	note=""	type="Function" nullable="true" default="null" />
+		<var name="after fun"	note=""	type="Function" nullable="true" default="null" />
 	</var_group>
-
-	  @cls = nil
-  @bld = nil
-  @separateGroups
-  @varCb
-  @bgCb = nil
-  @agCb = nil
 
 </model>

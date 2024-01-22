@@ -4,8 +4,8 @@
 */
 
 export class CodeElemTemplate {
-    name: string;
-    isPointerTpl: boolean;
-    isCollection: boolean;
+    name: string = "";
+    isPointerTpl: boolean = false;
+    isCollection: boolean = false;
 }
 

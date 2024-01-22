@@ -4,7 +4,7 @@
 */
 
 export class Type {
-    name: string;
-    category: string;
+    name: string = "";
+    category: string = "";
 }
 

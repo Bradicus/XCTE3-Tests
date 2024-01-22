@@ -4,8 +4,8 @@
 */
 
 export class SortFilter {
-    defaultSortColumn: string;
-    defaultSortDirection: string;
-    sortableColumns: string[];
+    defaultSortColumn: string = "";
+    defaultSortDirection: string = "";
+    sortableColumns: string[] = [];
 }
 
