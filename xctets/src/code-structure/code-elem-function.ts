@@ -15,6 +15,6 @@ export class CodeElemFunction extends CodeElem {
     isInline: boolean = false;
     isTemplate: boolean = false;
     annotations: string[] = [];
-    returnValue: CodeElemVariable = new CodeElemVariable(self);
+    returnValue: CodeElemVariable = new CodeElemVariable(this);
 }
 

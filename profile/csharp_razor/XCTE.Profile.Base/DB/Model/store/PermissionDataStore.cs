@@ -125,13 +125,13 @@ public class PermissionDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Permission RetrieveOneById(long Id, SqlConnection conn, SqlTransaction trans = null)
+    public Permission RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
         var o = new Permission();
         string sql = @"SELECT TOP 1 
         FROM permission
         WHERE 
-            [id] = @Id";
+            ";
         
         try
         {
@@ -139,7 +139,6 @@ public class PermissionDataStore
             {
                 cmd.Transaction = trans;
                 
-                cmd.Parameters.AddWithValue("@id", Id);
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {

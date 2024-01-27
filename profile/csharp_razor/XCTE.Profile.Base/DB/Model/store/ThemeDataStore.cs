@@ -102,13 +102,13 @@ public class ThemeDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Theme RetrieveOneById(long Id, SqlConnection conn, SqlTransaction trans = null)
+    public Theme RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
         var o = new Theme();
         string sql = @"SELECT TOP 1 
         FROM theme
         WHERE 
-            [id] = @Id";
+            ";
         
         try
         {
@@ -116,7 +116,6 @@ public class ThemeDataStore
             {
                 cmd.Transaction = trans;
                 
-                cmd.Parameters.AddWithValue("@id", Id);
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {

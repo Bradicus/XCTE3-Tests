@@ -6,7 +6,7 @@
 
 	<item_class name="profile listing item" />
 
-		<var_group genGet="true" genSet="true" visibility="private">
+		<var_group genGet="true" genSet="true" visibility="private" construct="true">
 			<var name="id" identity="(1,1)" type="Int64" pkey="true" />
 			<var_group>
 				<var name="first name" type="String" maxlen="255" required="true" />

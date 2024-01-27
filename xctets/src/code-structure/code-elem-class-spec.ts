@@ -1,3 +1,4 @@
+import { CodeElemClassRef } from './code-elem-class-ref';
 import { CodeElemFunction } from './code-elem-function';
 import { CodeElemInclude } from './code-elem-include';
 import { CodeElemNamespace } from './code-elem-namespace';
@@ -32,7 +33,7 @@ export class CodeElemClassSpec {
     standardClassType: string = "";
     customCode: string = "";
     dataClass: string = "";
-    classGroupRef: string | null = "null";
+    classGroupRef: CodeElemClassRef | null = null;
     classGroupName: string | null = "null";
     variant: string | null = "null";
     featureGroup: string | null = "null";

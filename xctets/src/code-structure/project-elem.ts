@@ -13,6 +13,7 @@ export class ProjectElem extends CodeElem {
     includeFolders: string[] = [];
     libraryFolders: string[] = [];
     singleFile: string = "null";
+    dest: string = "null";
     generators: ProjectElemGenerator[] = [];
 }
 

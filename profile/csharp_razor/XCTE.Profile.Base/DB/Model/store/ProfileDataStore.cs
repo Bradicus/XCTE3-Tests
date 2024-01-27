@@ -162,13 +162,13 @@ public class ProfileDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Profile RetrieveOneById(long Id, SqlConnection conn, SqlTransaction trans = null)
+    public Profile RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
         var o = new Profile();
         string sql = @"SELECT TOP 1 
         FROM profile
         WHERE 
-            [id] = @Id";
+            ";
         
         try
         {
@@ -176,7 +176,6 @@ public class ProfileDataStore
             {
                 cmd.Transaction = trans;
                 
-                cmd.Parameters.AddWithValue("@id", Id);
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {

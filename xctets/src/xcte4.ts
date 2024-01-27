@@ -1,4 +1,5 @@
 import * as program from "commander";
+import { ProjectLoader } from "./data-loading/project-loader";
 const command = new program.Command();
 
 command
@@ -14,6 +15,7 @@ command.command('f')
     const limit = options.first ? 1 : undefined;
     console.log(str.split(options.separator, limit));
 
+    var project = ProjectLoader.load("xcte.project.xml")
     
   });
 
