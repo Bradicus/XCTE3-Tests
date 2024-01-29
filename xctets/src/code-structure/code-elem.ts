@@ -1,9 +1,15 @@
+/* 
+* Copyright XCTE Contributors
+* This file is released under the zlib/libpng license, see license.txt in the
+* root directory
+*/
+
 import { DataNode } from '../data-loading/data-node';
+
 /**
 * @class CodeElem
 * 
 */
-
 export class CodeElem {
     elementId: string = "";
     name: string | null = null;

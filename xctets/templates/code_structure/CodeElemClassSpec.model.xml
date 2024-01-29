@@ -13,10 +13,10 @@
 		<var name="model"			type="String" default="model" />
 		<var name="path"			type="String" default="" />
 		<var name="namespace"		utype="code elem namespace" />		
-		<var name="language"		type="String" default="nil" />
+		<var name="language"		type="String" />
 		<var name="includes"		utype="code elem include" set="List" />
 		<var name="uses"			utype="code elem use" set="List" />
-		<var name="gen cfg"			utype="project elem" nullable="true" default="null" />		
+		<var name="gen cfg"			utype="project elem" nullable="true" />		
 		<var name="functions"		utype="code elem function" set="List" />
 		<var name="base classes"	utype="code elem class spec" set="List" />
 		<var name="interfaces"		utype="code elem class spec" set="List" />
@@ -31,10 +31,10 @@
 		<var name="standard class type"	type="String" default="" />
 		<var name="custom code"			type="String" default="" />
 		<var name="data class"			type="String" default="" />
-		<var name="class group ref"		utype="code elem class ref" nullable="true" default="null" />
-		<var name="class group name"	type="String" nullable="true" default="null" />
-		<var name="variant"				type="String" nullable="true" default="null" />
-		<var name="feature group"		type="String" nullable="true" default="null" />
+		<var name="class group ref"		utype="code elem class ref" nullable="true" />
+		<var name="class group name"	type="String" nullable="true" />
+		<var name="variant"				type="String" nullable="true" />
+		<var name="feature group"		type="String" nullable="true" />
 	</var_group>
 
 </model>

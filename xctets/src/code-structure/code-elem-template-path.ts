@@ -1,10 +1,16 @@
+/* 
+* Copyright XCTE Contributors
+* This file is released under the zlib/libpng license, see license.txt in the
+* root directory
+*/
+
 import { CodeElem } from './code-elem';
 import { CodeElemNamespace } from './code-elem-namespace';
+
 /**
 * @class CodeElemTemplatePath
 * 
 */
-
 export class CodeElemTemplatePath extends CodeElem {
     elementId: string = "CodeElem::ELEM_TEMPLATE_DIRECTORY";
     path: string = "";

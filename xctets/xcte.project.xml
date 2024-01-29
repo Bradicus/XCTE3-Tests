@@ -1,10 +1,11 @@
 <project>
-  <generate tpl_path="templates" dest="./src" language="typescript" ignore_namespace="true">
-    <head_comment>
+  <file_comment>
 Copyright XCTE Contributors
 This file is released under the zlib/libpng license, see license.txt in the
 root directory
-    </head_comment>    
+  </file_comment>
+
+  <generate tpl_path="templates" dest="./src" language="typescript" ignore_namespace="true">  
   </generate>  
   
 </project>

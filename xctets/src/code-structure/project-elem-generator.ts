@@ -1,12 +1,18 @@
+/* 
+* Copyright XCTE Contributors
+* This file is released under the zlib/libpng license, see license.txt in the
+* root directory
+*/
+
 import { CodeElem } from './code-elem';
 import { CodeElemBuildVar } from './code-elem-build-var';
 import { CodeElemNamespace } from './code-elem-namespace';
 import { ProjectElemExternalDependency } from './project-elem-external-dependency';
+
 /**
 * @class ProjectElemGenerator
 * 
 */
-
 export class ProjectElemGenerator extends CodeElem {
     language: string | null = null;
     templateFolders: string[] = [];
