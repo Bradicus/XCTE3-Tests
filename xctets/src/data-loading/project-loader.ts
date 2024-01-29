@@ -1,32 +1,47 @@
 import { ProjectElem } from "../code-structure/project-elem";
+import { ProjectElemGenerator } from "../code-structure/project-elem-generator";
+import { AttributeLoader } from "./attribute-loader";
 
 export class ProjectLoader {
-    static load(fileName: string) {        
-      var project: ProjectElem = new ProjectElem();
+  static load(fileName: string) {
+    var project: ProjectElem = new ProjectElem();
 
-      const figlet = require("figlet");
-      console.log(figlet.textSync("XCTE"));
-      
-      const fs = require('fs');
-      const fileData = fs.readFileSync(fileName, "utf8");
+    const fs = require('fs');
+    const fileData = fs.readFileSync(fileName, "utf8");
 
-      const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
-      const parser = new XMLParser();
-      const doc = parser.parse(fileData);
+    const jsdom = require("jsdom");
+    const { JSDOM } = jsdom;
 
-      project.name = doc.name;
+    const dom = new JSDOM(fileData);
 
-      return project;
-      // doc.childNodes[0].
-      // if (project.dest == null)
-      //   project.dest = '.';
-      
-      // project.buildType = xmlDoc.root.attributes['build_type']
+    // There should only be one project element
+    if (dom.window.document.getElementsByTagName("project").length != 1)
+      console.error('There should be exactly project element');
 
-      // project.xmlElement = xmlDoc.root
+    for (let p of dom.window.document.getElementsByTagName('project')) {
+      project.name = p.getAttribute('name') ?? '';
 
-      // xmlDoc.elements.each('project') do |prj|
-      //   loadComponentGroup(project, project.componentGroup, prj)
-      // end
+      for (let gen of dom.window.document.getElementsByTagName('generator')) {
+        ProjectLoader.loadGenerator(project, gen);
+      }
     }
+
+    return project;
+  }
+
+  static loadGenerator(project: ProjectElem, dataNode: Element) {
+    var generator = new ProjectElemGenerator();
+
+    generator.name = new AttributeLoader(dataNode).wName('name').wDefault('').get();
+    generator.language = new AttributeLoader(dataNode).wName('language').wDefault('').get();
+    generator.ouputFolder = new AttributeLoader(dataNode).wName('path').wDefault('').get();
+    generator.templateFolders.push(dataNode.getAttribute('tpl_path') ?? 'templates');
+    generator.ignoreNamespace = new AttributeLoader(dataNode).wName('ignore_namespace').wDefault('').get() == 'true'
+
+    for (let desc of dataNode.getElementsByTagName('description')) {
+      generator.description = desc.textContent ?? '';
+    }
+
+    project.generators.push(generator);
+  }
 }

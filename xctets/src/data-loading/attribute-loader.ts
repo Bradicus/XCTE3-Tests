@@ -22,66 +22,65 @@ export class AttributeLoader {
     isTemplateAttrib = false;
     required = false;
 
-    constructor(xmlNode: any) {
+    constructor(xmlNode: Element) {
         this.xmlNode = xmlNode;
     }
 
-    public wName(name: string) {
+    public wName(name: string) : AttributeLoader {
         this.names.push(name);
-        return self;
+        return this;
     }
 
-    public wClass(clsSpec: CodeElemClassSpec) {
+    public wClass(clsSpec: CodeElemClassSpec) : AttributeLoader {
         this.clsSpec = clsSpec;
-        return self;
+        return this;
     }
 
-    public wModel(model: CodeElemDataSpec) {
+    public wModel(model: CodeElemDataSpec) : AttributeLoader {
         this.model = model;
-        return self;
+        return this;
     }
 
-    public wVar(varE: CodeElemVariable) {
+    public wVar(varE: CodeElemVariable) : AttributeLoader {
         this.varE = varE;
-        return self;
+        return this;
     }
 
-    public wNames(names: string[]) {
+    public wNames(names: string[]) : AttributeLoader {
         this.names.concat(names);
-        return self;
+        return this;
     }
 
-    public doInherit() {
+    public doInherit() : AttributeLoader {
         this.inheritable = true;
-        return self;
+        return this;
     }
 
-    public wArrayDelim(arrayDelim: string) {
+    public wArrayDelim(arrayDelim: string) : AttributeLoader {
         this.arrayDelim = arrayDelim;
-        return self;
+        return this;
     }
 
-    public isTplAttrib() {
+    public isTplAttrib() : AttributeLoader {
         this.isTemplateAttrib = true;
-        return self;
+        return this;
     }
 
-    public isRequired() {
+    public isRequired() : AttributeLoader {
         this.required = true;
-        return self;
+        return this;
     }
 
-
-    public wDefault(attribDefault: any) {
+    public wDefault(attribDefault: any) : AttributeLoader {
         this.attribDefault = attribDefault
-        return self;
+        return this;
     }
 
-    public get(attrib: CodeElemVariable | null) {
-        this.loadAttrib(this.xmlNode, attrib);
+    public get() : string | null {
+        return this.loadAttrib(this.xmlNode, null);
     }
 
-    public loadAttrib(xmlNode: Node, v: CodeElemVariable | null) {
+    public loadAttrib(xmlNode: Element, v: CodeElemVariable | null) : string | null {
         for (const name of this.names) {
             var atr = this.getAttribute(xmlNode, name);
 
@@ -107,6 +106,8 @@ export class AttributeLoader {
                 return value;
             }
         }
+
+        return this.defaultValue ?? '';
     }
 
     public getAttribute(aXml: any, atrName: string) {
@@ -133,7 +134,7 @@ export class AttributeLoader {
         });
 
         if (this.model != null) {
-            newVal = newVal.replace("!{ModelName}", this.model.name);
+            newVal = newVal.replace("!{ModelName}", this.model.name ?? ":(");
         }
 
         if (this.clsSpec != null && this.clsSpec?.featureGroup != null) {

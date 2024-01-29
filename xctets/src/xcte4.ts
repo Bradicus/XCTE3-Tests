@@ -1,22 +1,17 @@
-import * as program from "commander";
+import { Command } from 'commander';
+import figlet from "figlet";
 import { ProjectLoader } from "./data-loading/project-loader";
-const command = new program.Command();
+
+const command = new Command();
 
 command
   .name('xcte4')
   .description('Generate code')
-  .version('1.0');
+  .version('1.0')
+  .parse(process.argv);
 
-command.command('f')
-  .description('Run a single file')
-  .argument('<string>', 'File name')
-  .option('-cfg', 'Use non-default config file')
-  .action((str, options) => {
-    const limit = options.first ? 1 : undefined;
-    console.log(str.split(options.separator, limit));
+console.log(figlet.textSync("XCTE"));
 
-    var project = ProjectLoader.load("xcte.project.xml")
-    
-  });
 
-program.program.parse();
+    var project = ProjectLoader.load("xcte.project.xml");
+

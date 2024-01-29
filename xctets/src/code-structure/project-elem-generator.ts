@@ -8,15 +8,15 @@ import { ProjectElemExternalDependency } from './project-elem-external-dependenc
 */
 
 export class ProjectElemGenerator extends CodeElem {
-    language: string = "";
-    templateFolder: string = "";
-    ouputFolder: string = "";
-    fileNote: string = "";
+    language: string | null = null;
+    templateFolders: string[] = [];
+    ouputFolder: string | null = null;
+    fileNote: string | null = null;
     ignoreNamespace: boolean = false;
     buildVars: CodeElemBuildVar[] = [];
     baseNamespace: CodeElemNamespace = new CodeElemNamespace();
     externalDependencies: ProjectElemExternalDependency[] = [];
-    logger: string = "null";
+    logger: string | null = null;
     includeFolders: string[] = [];
     libraryFolders: string[] = [];
 }

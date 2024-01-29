@@ -6,11 +6,11 @@ import { DataNode } from '../data-loading/data-node';
 
 export class CodeElem {
     elementId: string = "";
-    name: string = "";
+    name: string | null = null;
     displayName: string = "";
     description: string = "";
     visibility: string = "";
-    parentElem: CodeElem = new CodeElem();
+    parentElem: CodeElem | null = null;
     dataNode: DataNode | null = null;
     osInclude: string[] = [];	/** What os's this node is limited to */
 }
