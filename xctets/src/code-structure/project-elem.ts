@@ -5,6 +5,7 @@
 */
 
 import { CodeElem } from './code-elem';
+import { CodeElemType } from './code-elem-type';
 import { ProjectElemGenerator } from './project-elem-generator';
 
 /**
@@ -12,14 +13,14 @@ import { ProjectElemGenerator } from './project-elem-generator';
 * 
 */
 export class ProjectElem extends CodeElem {
-    elementId: string = "CodeElem::ELEM_PROJECT";
-    buildType: string = "null";
-    templateFolders: string[] = [];
+    element_id: CodeElemType = CodeElemType.ELEM_PROJECT;
+    buildType: string | null = null;
+    templateFolders: string | null = null;
     langProfilePaths: string[] = [];
     includeFolders: string[] = [];
     libraryFolders: string[] = [];
-    singleFile: string = "null";
-    dest: string = "null";
+    singleFile: string | null = null;
+    dest: string | null = null;
     generators: ProjectElemGenerator[] = [];
 }
 

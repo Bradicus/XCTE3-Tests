@@ -11,8 +11,8 @@ import { CodeElem } from './code-elem';
 * 
 */
 export class CodeElemInclude extends CodeElem {
-    path: string = "null";
-    name: string = "null";
-    type: string = "null";
+    path: string | null = null;
+    name: string | null = null;
+    type: string | null = null;
 }
 

@@ -2,7 +2,6 @@
 * @class Address
 * 
 */
-
 export class Address {
     id: number = 0;
     street1: string = "";

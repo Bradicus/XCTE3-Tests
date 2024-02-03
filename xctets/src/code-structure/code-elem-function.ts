@@ -5,6 +5,7 @@
 */
 
 import { CodeElem } from './code-elem';
+import { CodeElemType } from './code-elem-type';
 import { CodeElemVarGroup } from './code-elem-var-group';
 import { CodeElemVariable } from './code-elem-variable';
 
@@ -13,7 +14,7 @@ import { CodeElemVariable } from './code-elem-variable';
 * 
 */
 export class CodeElemFunction extends CodeElem {
-    elementId: string = "CodeElem::ELEM_FUNCTION";
+    element_id: CodeElemType = CodeElemType.ELEM_FUNCTION;
     parameters: CodeElemVarGroup = new CodeElemVarGroup();
     isConst: boolean = false;
     isStatic: boolean = false;

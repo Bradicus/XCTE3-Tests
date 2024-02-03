@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+
+/**
+* @class NavbarComponent
+* 
+*/
 class NavNode {
     name: string;
     url: string | null;

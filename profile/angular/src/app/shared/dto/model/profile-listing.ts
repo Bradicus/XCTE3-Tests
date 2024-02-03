@@ -2,7 +2,6 @@
 * @class ProfileListing
 * 
 */
-
 export class ProfileListing {
     id: number = 0;
     firstName: string = "";

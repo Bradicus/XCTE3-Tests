@@ -5,6 +5,10 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+/**
+* @class PermissionDataStore
+* 
+*/
 public interface PermissionDataStore extends JpaRepository<Permission, Long> {
 }
 

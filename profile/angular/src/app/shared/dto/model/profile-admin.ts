@@ -1,10 +1,10 @@
 import { Address } from './address';
 import { Role } from './role';
+
 /**
 * @class ProfileAdmin
 * 
 */
-
 export class ProfileAdmin {
     id: number = 0;
     firstName: string = "";

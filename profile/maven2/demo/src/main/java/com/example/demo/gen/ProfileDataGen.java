@@ -5,6 +5,10 @@ import com.github.javafaker.Faker;
 import java.util.concurrent.TimeUnit;
 import java.time.LocalDateTime;
 
+/**
+* @class ProfileDataGen
+* 
+*/
 public class ProfileDataGen {
     
     void populateRandom(Faker faker, Profile item) {

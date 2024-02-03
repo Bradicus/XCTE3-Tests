@@ -11,8 +11,8 @@ import { CodeElem } from './code-elem';
 * 
 */
 export class CodeElemClassGroupRef extends CodeElem {
-    name: string = "nil";
-    for: string = "nil";
-    featureGroup: string = "nil";
+    name: string | null = null;
+    for: string | null = null;
+    featureGroup: string | null = null;
 }
 

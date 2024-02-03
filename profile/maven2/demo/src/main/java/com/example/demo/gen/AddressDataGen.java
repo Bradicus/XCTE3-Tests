@@ -3,6 +3,10 @@ package com.example.demo.gen;
 import com.example.demo.db.model.*;
 import com.github.javafaker.Faker;
 
+/**
+* @class AddressDataGen
+* 
+*/
 public class AddressDataGen {
     
     void populateRandom(Faker faker, Address item) {

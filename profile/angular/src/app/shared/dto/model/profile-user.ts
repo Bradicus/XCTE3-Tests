@@ -1,9 +1,9 @@
 import { Address } from './address';
+
 /**
 * @class ProfileUser
 * 
 */
-
 export class ProfileUser {
     id: number = 0;
     firstName: string = "";

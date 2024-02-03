@@ -6,13 +6,14 @@
 
 import { CodeElem } from './code-elem';
 import { CodeElemNamespace } from './code-elem-namespace';
+import { CodeElemType } from './code-elem-type';
 
 /**
 * @class CodeElemTemplatePath
 * 
 */
 export class CodeElemTemplatePath extends CodeElem {
-    elementId: string = "CodeElem::ELEM_TEMPLATE_DIRECTORY";
+    element_id: CodeElemType = CodeElemType.ELEM_TEMPLATE_DIRECTORY;
     path: string = "";
     dest: string = "";
     languages: string[] = [];

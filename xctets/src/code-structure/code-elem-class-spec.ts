@@ -8,6 +8,7 @@ import { CodeElemClassRef } from './code-elem-class-ref';
 import { CodeElemFunction } from './code-elem-function';
 import { CodeElemInclude } from './code-elem-include';
 import { CodeElemNamespace } from './code-elem-namespace';
+import { CodeElemType } from './code-elem-type';
 import { CodeElemUse } from './code-elem-use';
 import { CodeElemVariable } from './code-elem-variable';
 import { ProjectElem } from './project-elem';
@@ -17,7 +18,7 @@ import { ProjectElem } from './project-elem';
 * 
 */
 export class CodeElemClassSpec {
-    elementId: string = "CodeElem::ELEM_CLASS_GEN";
+    element_id: CodeElemType = CodeElemType.ELEM_CLASS_GEN;
     model: string = "model";
     path: string = "";
     namespace: CodeElemNamespace = new CodeElemNamespace();
@@ -32,13 +33,13 @@ export class CodeElemClassSpec {
     interfaceNamespace: CodeElemNamespace = new CodeElemNamespace();
     testNamespace: CodeElemNamespace = new CodeElemNamespace();
     templateParams: CodeElemClassSpec[] = [];
-    varPrefix: string = "";
+    varPrefix: string | null = null;
     preDefs: string[] = [];
-    filePath: string = "";
-    standardClass: string = "";
-    standardClassType: string = "";
-    customCode: string = "";
-    dataClass: string = "";
+    filePath: string | null = null;
+    standardClass: string | null = null;
+    standardClassType: string | null = null;
+    customCode: string | null = null;
+    dataClass: string | null = null;
     classGroupRef: CodeElemClassRef | null = new CodeElemClassRef();
     classGroupName: string | null = null;
     variant: string | null = null;

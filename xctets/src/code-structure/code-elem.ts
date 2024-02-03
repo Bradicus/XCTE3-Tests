@@ -4,6 +4,7 @@
 * root directory
 */
 
+import { CodeElemType } from './code-elem-type';
 import { DataNode } from '../data-loading/data-node';
 
 /**
@@ -11,9 +12,9 @@ import { DataNode } from '../data-loading/data-node';
 * 
 */
 export class CodeElem {
-    elementId: string = "";
+    element_id: CodeElemType | null = null;
     name: string | null = null;
-    displayName: string = "";
+    display_name: string = "";
     description: string = "";
     visibility: string = "";
     parentElem: CodeElem | null = null;

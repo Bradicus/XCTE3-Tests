@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Permission } from '../../shared/dto/model/permission';
 import { Role } from '../../shared/dto/model/role';
 import { FilteredPageReqTpl } from '../../shared/paging/filtered-page-req-tpl';
 import { FilteredPageRespTpl } from '../../shared/paging/filtered-page-resp-tpl';

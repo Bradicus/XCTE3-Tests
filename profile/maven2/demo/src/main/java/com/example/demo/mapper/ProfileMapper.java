@@ -9,6 +9,10 @@ import com.example.demo.db.model.*;
 import com.example.demo.dto.*;
 import java.time.LocalDateTime;
 
+/**
+* @class ProfileMapper
+* 
+*/
 @Mapper
 public interface ProfileMapper {
     ProfileMapper INSTANCE = Mappers.getMapper( ProfileMapper.class );

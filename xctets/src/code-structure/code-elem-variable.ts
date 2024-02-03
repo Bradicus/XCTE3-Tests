@@ -14,7 +14,7 @@ import { CodeElemTemplate } from './code-elem-template';
 export class CodeElemVariable extends CodeElem {
     vtype: string = "";
     templateType: string = "";
-    defaultValue: string = "null";
+    defaultValue: string | null = null;
     construct: boolean = false;
     comment: string = "";
     isVirtual: boolean = false;
@@ -25,13 +25,13 @@ export class CodeElemVariable extends CodeElem {
     genSet: boolean = false;
     genGet: boolean = false;
     nullable: boolean = false;
-    identity: string = "null";
+    identity: string | null = null;
     isPrimary: boolean = false;
     selectFrom: boolean = false;
     isOptionsList: boolean = false;
     templates: CodeElemTemplate[] = [];
     attribs: string[] = [];
-    listType: string = "nil";
+    listType: string | null = null;
     arrayElemCount: number = 0;
     
     constructor(parentElem: CodeElem) {
