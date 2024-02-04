@@ -90,6 +90,7 @@ export class ProfileUserEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.profileUserEditForm.markAllAsTouched();
         if (!this.profileUserEditForm.invalid) {
             if (this.profileUserEditForm.controls['id'].value === null || !(this.profileUserEditForm.controls['id'].value > 0)) {
                 this.profileUserDataStoreService.create(this.profileUserEditForm.value).subscribe(newItem =>  {

@@ -60,6 +60,7 @@ export class AddressEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.addressEditForm.markAllAsTouched();
         if (!this.addressEditForm.invalid) {
             if (this.addressEditForm.controls['id'].value === null || !(this.addressEditForm.controls['id'].value > 0)) {
                 this.addressDataStoreService.create(this.addressEditForm.value).subscribe(newItem =>  {

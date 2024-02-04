@@ -55,6 +55,7 @@ export class ThemeEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.themeEditForm.markAllAsTouched();
         if (!this.themeEditForm.invalid) {
             if (this.themeEditForm.controls['id'].value === null || !(this.themeEditForm.controls['id'].value > 0)) {
                 this.themeDataStoreService.create(this.themeEditForm.value).subscribe(newItem =>  {

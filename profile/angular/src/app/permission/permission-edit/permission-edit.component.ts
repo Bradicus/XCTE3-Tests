@@ -55,6 +55,7 @@ export class PermissionEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.permissionEditForm.markAllAsTouched();
         if (!this.permissionEditForm.invalid) {
             if (this.permissionEditForm.controls['id'].value === null || !(this.permissionEditForm.controls['id'].value > 0)) {
                 this.permissionDataStoreService.create(this.permissionEditForm.value).subscribe(newItem =>  {

@@ -62,6 +62,7 @@ export class RoleEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.roleEditForm.markAllAsTouched();
         if (!this.roleEditForm.invalid) {
             if (this.roleEditForm.controls['id'].value === null || !(this.roleEditForm.controls['id'].value > 0)) {
                 this.roleDataStoreService.create(this.roleEditForm.value).subscribe(newItem =>  {

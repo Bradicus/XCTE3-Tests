@@ -99,6 +99,7 @@ export class ProfileAdminEditComponent implements OnInit  {
     }
     
     onSubmit() {
+        this.profileAdminEditForm.markAllAsTouched();
         if (!this.profileAdminEditForm.invalid) {
             if (this.profileAdminEditForm.controls['id'].value === null || !(this.profileAdminEditForm.controls['id'].value > 0)) {
                 this.profileAdminDataStoreService.create(this.profileAdminEditForm.value).subscribe(newItem =>  {
