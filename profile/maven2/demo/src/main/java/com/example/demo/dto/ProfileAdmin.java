@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 /**
 * @class ProfileAdmin
-*
+* 
 */
 public class ProfileAdmin {
     public long id;

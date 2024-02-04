@@ -13,6 +13,6 @@ import { CodeElem } from './code-elem';
 export class CodeElemClassGroupRef extends CodeElem {
     name: string | null = null;
     for: string | null = null;
-    featureGroup: string | null = null;
+    feature_group: string | null = null;
 }
 

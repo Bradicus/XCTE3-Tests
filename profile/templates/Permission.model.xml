@@ -4,7 +4,7 @@
 	<description>
 	</description>
 
-	<var_group genGet="true" genSet="true" visibility="private" construct="true">
+	<var_group genGet="true" genSet="true" visibility="private" init_vars="true">
 		<var name="id" identity="(1,1)" type="Int64" maxlen="10" pkey="true" />
 		<var name="code" type="String" maxlen="50" />
 		<var name="description" type="String" />
@@ -16,8 +16,8 @@
 	<class_group_ref name="edit" feature_group="permission" />
 
 		<gen_class type="class_angular_listing"
-		  name="!{FeatureGroup} listing"
-		  path="!{FeatureGroup}/!{FeatureGroup} listing"
+		  name="!{feature_group} listing"
+		  path="!{feature_group}/!{feature_group} listing"
 			feature_group="permission">
 			<search_by name="code"/>
 			<search_by name="description"/>
@@ -25,8 +25,8 @@
 				pager="server"
 				sizes="10,20,50"/>
 			<actions>
-				<action name="view" link="/!{FeatureGroup}/!{FeatureGroup}-view" role="user"/>
-				<action name="edit" link="/!{FeatureGroup}/!{FeatureGroup}-edit" role="admin" />
+				<action name="view" link="/!{feature_group}/!{feature_group}-view" role="user"/>
+				<action name="edit" link="/!{feature_group}/!{feature_group}-edit" role="admin" />
 				<action name="delete" trigger="delete" role="admin" />
 			</actions>
 		</gen_class>

@@ -1,0 +1,70 @@
+<button type="button" class="btn btn-primary btn-sm" routerLink="//address/address-edit/0">New address</button>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('id')">Id
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('street1')">Street 1
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('street2')">Street 2
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('city')">City
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('state')">State
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('country')">Country
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('zipCode')">Zip code
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+                <th scope="col" style="cursor: pointer" (click)="sortBy('active')">Active
+                    <i class="bi bi-arrow-bar-down"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of (page)?.data">
+                <td>{{item.id}}</td>
+                <td>{{item.street1}}</td>
+                <td>{{item.street2}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.state}}</td>
+                <td>{{item.country}}</td>
+                <td>{{item.zipCode}}</td>
+                <td>{{item.active}}</td>
+                <th></th>
+            </tr>
+        </tbody>
+        <tfoot *ngIf="(page)?.pageCount ?? 0 > 1">
+            <tr>
+                <td class="list-group-horizontal" colspan="8">
+                    <ul class="pagination list-group list-group-horizontal">
+                        <li>
+                            <a class="page-link" style="cursor: pointer" (click)="goToPage(0)">&lt;&lt;</a>
+                        </li>
+                        <li>
+                            <a class="page-link" style="cursor: pointer" (click)="goToPreviousPage()">&lt;</a>
+                        </li>
+                        <li class="page-item" *ngFor="let item of [].constructor((page)?.pageCount ?? 0);let i = index">
+                            <a class="page-link" style="cursor: pointer" (click)="goToPage(i)">{{i + 1}}</a>
+                        </li>
+                        <li>
+                            <a class="page-link" style="cursor: pointer" (click)="goToNextPage()">&gt;</a>
+                        </li>
+                        <li>
+                            <a class="page-link" style="cursor: pointer" (click)="goToPage(this.page.pageCount - 1)">&gt;&gt;</a>
+                        </li>
+                    </ul>
+                    <span class="justify-content-end">Page </span>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

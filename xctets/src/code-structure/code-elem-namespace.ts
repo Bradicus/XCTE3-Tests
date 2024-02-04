@@ -11,6 +11,6 @@ import { CodeElem } from './code-elem';
 * 
 */
 export class CodeElemNamespace extends CodeElem {
-    nsList: string[] = [];
+    ns_list: string[] = [];
 }
 

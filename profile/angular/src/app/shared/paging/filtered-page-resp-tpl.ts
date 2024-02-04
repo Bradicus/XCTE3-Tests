@@ -1,8 +1,3 @@
-/**
-* @class FilteredPageRespTpl
-* 
-*/
-
 export class FilteredPageRespTpl<T> {
     data: T[] = [];
     pageNum: number = 0;

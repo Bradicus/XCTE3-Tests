@@ -5,9 +5,9 @@ public class ProfileDataStore
     /// Create new record for this model
     /// If you are not using ambient transactions, trans must be defined!
     ///
-    public void Create(Profile o, SqlConnection conn, SqlTransaction trans = null)
+    public void Create(ProfileDataStore o, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"INSERT INTO Profile(
+        string sql = @"INSERT INTO ProfileDataStore(
             [id],
             [firstName],
             [lastName],
@@ -63,16 +63,16 @@ public class ProfileDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error inserting Profile into database", e);
+            throw new Exception("Error inserting ProfileDataStore into database", e);
         };
     }
     
     ///
     /// Update the record for this model
     ///
-    public void Update(Profile o, SqlConnection conn, SqlTransaction trans)
+    public void Update(ProfileDataStore o, SqlConnection conn, SqlTransaction trans)
     {
-        string sql = @"UPDATE Profile SET 
+        string sql = @"UPDATE ProfileDataStore SET 
             [firstName] = @FirstName,
             [lastName] = @LastName,
             [username] = @Username,
@@ -109,16 +109,16 @@ public class ProfileDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error updating profile with first name = " + o.FirstName, e);
+            throw new Exception("Error updating ProfileDataStore with first name = " + o.FirstName, e);
         };
     }
     
     /// <summary>
     /// Reads data set from sql database
     /// </summary>
-    public IEnumerable<Profile> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
+    public IEnumerable<ProfileDataStore> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
     {
-        List<Profile> resultList = new List<Profile>();
+        List<ProfileDataStore> resultList = new List<ProfileDataStore>();
         string sql = @"SELECT 
             [id],
             [firstName],
@@ -134,7 +134,7 @@ public class ProfileDataStore
             [theme],
             [active]
             
-        FROM Profile";
+        FROM ProfileDataStore";
         
         try
         {
@@ -145,14 +145,14 @@ public class ProfileDataStore
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {
-                    var o = new Profile();
+                    var o = new ProfileDataStore();
                 }
             }
         }
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving all items from Profile", e);
+            throw new Exception("Error retrieving all items from ProfileDataStore", e);
         };
         
         
@@ -162,11 +162,11 @@ public class ProfileDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Profile RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
+    public ProfileDataStore RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
-        var o = new Profile();
+        var o = new ProfileDataStore();
         string sql = @"SELECT TOP 1 
-        FROM profile
+        FROM ProfileDataStore
         WHERE 
             ";
         
@@ -185,7 +185,7 @@ public class ProfileDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving one item from profile", e);
+            throw new Exception("Error retrieving one item from ProfileDataStore", e);
         };
         
         

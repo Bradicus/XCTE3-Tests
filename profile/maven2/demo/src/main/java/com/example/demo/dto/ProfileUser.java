@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 /**
 * @class ProfileUser
-*
+* 
 */
 public class ProfileUser {
     public long id;

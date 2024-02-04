@@ -1,8 +1,3 @@
-/**
-* @class FilteredPageReqTpl
-* 
-*/
-
 export class FilteredPageReqTpl<T> {
     pageNum: number = 0;
     pageSize: number = 10;

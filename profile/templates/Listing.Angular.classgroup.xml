@@ -2,8 +2,8 @@
 
   	<!-- Angular -->
     <gen_class type="class_angular_listing"
-      name="!{FeatureGroup} !{ClassGroupName} !{ClassGroupVariant}"
-      path="!{FeatureGroup}/!{FeatureGroup} !{ClassGroupName} !{ClassGroupVariant}">
+      name="!{feature_group} !{ClassGroupName} !{ClassGroupVariant}"
+      path="!{feature_group}/!{feature_group} !{ClassGroupName} !{ClassGroupVariant}">
     </gen_class>
 
 </class_group>

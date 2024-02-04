@@ -27,13 +27,13 @@ export class CodeElemClassSpec {
     uses: CodeElemUse[] = [];
     genCfg: ProjectElem | null = new ProjectElem();
     functions: CodeElemFunction[] = [];
-    baseClasses: CodeElemClassSpec[] = [];
+    base_classes: CodeElemClassSpec[] = [];
     interfaces: CodeElemClassSpec[] = [];
     injections: CodeElemVariable[] = [];
-    interfaceNamespace: CodeElemNamespace = new CodeElemNamespace();
-    testNamespace: CodeElemNamespace = new CodeElemNamespace();
+    interface_namespace: CodeElemNamespace = new CodeElemNamespace();
+    test_namespace: CodeElemNamespace = new CodeElemNamespace();
     templateParams: CodeElemClassSpec[] = [];
-    varPrefix: string | null = null;
+    var_prefix: string | null = null;
     preDefs: string[] = [];
     filePath: string | null = null;
     standardClass: string | null = null;
@@ -43,6 +43,6 @@ export class CodeElemClassSpec {
     classGroupRef: CodeElemClassRef | null = new CodeElemClassRef();
     classGroupName: string | null = null;
     variant: string | null = null;
-    featureGroup: string | null = null;
+    feature_group: string | null = null;
 }
 

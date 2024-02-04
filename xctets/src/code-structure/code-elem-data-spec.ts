@@ -20,7 +20,7 @@ export class CodeElemDataSpec extends CodeElem {
     varGroup: CodeElemVarGroup = new CodeElemVarGroup();
     xmlFileName: string = "";
     modelSet: string = "";
-    featureGroup: string | null = null;
+    feature_group: string | null = null;
     dataFilter: DataFilter = new DataFilter();
 }
 

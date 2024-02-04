@@ -5,9 +5,9 @@ public class PermissionDataStore
     /// Create new record for this model
     /// If you are not using ambient transactions, trans must be defined!
     ///
-    public void Create(Permission o, SqlConnection conn, SqlTransaction trans = null)
+    public void Create(PermissionDataStore o, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"INSERT INTO Permission(
+        string sql = @"INSERT INTO PermissionDataStore(
             [id],
             [code],
             [description]
@@ -32,16 +32,16 @@ public class PermissionDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error inserting Permission into database", e);
+            throw new Exception("Error inserting PermissionDataStore into database", e);
         };
     }
     
     ///
     /// Update the record for this model
     ///
-    public void Update(Permission o, SqlConnection conn, SqlTransaction trans)
+    public void Update(PermissionDataStore o, SqlConnection conn, SqlTransaction trans)
     {
-        string sql = @"UPDATE Permission SET 
+        string sql = @"UPDATE PermissionDataStore SET 
             [code] = @Code,
             [description] = @Description
         WHERE [id] = @Id";
@@ -60,7 +60,7 @@ public class PermissionDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error updating permission with code = " + o.Code, e);
+            throw new Exception("Error updating PermissionDataStore with code = " + o.Code, e);
         };
     }
     
@@ -69,7 +69,7 @@ public class PermissionDataStore
     ///
     public void Delete(long Id, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"DELETE FROM Permission WHERE [id] = @Id";
+        string sql = @"DELETE FROM PermissionDataStore WHERE [id] = @Id";
         
         try
         {
@@ -83,21 +83,21 @@ public class PermissionDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error deleting permission with id = " + Id, e);
+            throw new Exception("Error deleting PermissionDataStore with id = " + Id, e);
         }
     }
     
     /// <summary>
     /// Reads data set from sql database
     /// </summary>
-    public IEnumerable<Permission> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
+    public IEnumerable<PermissionDataStore> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
     {
-        List<Permission> resultList = new List<Permission>();
+        List<PermissionDataStore> resultList = new List<PermissionDataStore>();
         string sql = @"SELECT 
             [id],
             [code],
             [description]
-        FROM Permission";
+        FROM PermissionDataStore";
         
         try
         {
@@ -108,14 +108,14 @@ public class PermissionDataStore
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {
-                    var o = new Permission();
+                    var o = new PermissionDataStore();
                 }
             }
         }
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving all items from Permission", e);
+            throw new Exception("Error retrieving all items from PermissionDataStore", e);
         };
         
         
@@ -125,11 +125,11 @@ public class PermissionDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Permission RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
+    public PermissionDataStore RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
-        var o = new Permission();
+        var o = new PermissionDataStore();
         string sql = @"SELECT TOP 1 
-        FROM permission
+        FROM PermissionDataStore
         WHERE 
             ";
         
@@ -148,7 +148,7 @@ public class PermissionDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving one item from permission", e);
+            throw new Exception("Error retrieving one item from PermissionDataStore", e);
         };
         
         

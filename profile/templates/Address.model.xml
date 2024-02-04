@@ -4,7 +4,7 @@
 	<description>
 	</description>
 
-	<var_group genGet="true" genSet="true" visibility="private" construct="true">
+	<var_group genGet="true" genSet="true" visibility="private" init_vars="true">
 		<var name="id"	identity="(1,1)"	type="Int64" pkey="true" />
 		<var name="street 1"	type="String" maxlen="50" required="true" />
 		<var name="street 2"	type="String" maxlen="50" />

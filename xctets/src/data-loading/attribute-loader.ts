@@ -137,10 +137,10 @@ export class AttributeLoader {
             newVal = newVal.replace("!{ModelName}", this.model.name ?? ":(");
         }
 
-        if (this.clsSpec != null && this.clsSpec?.featureGroup != null) {
-            newVal = newVal.replace("!{FeatureGroup}", this.clsSpec.featureGroup);
+        if (this.clsSpec != null && this.clsSpec?.feature_group != null) {
+            newVal = newVal.replace("!{feature_group}", this.clsSpec.feature_group);
         } else {
-            newVal = newVal.replace("!{FeatureGroup}", "");
+            newVal = newVal.replace("!{feature_group}", "");
         }
 
         if (this.clsSpec != null && this.clsSpec?.variant != null) {

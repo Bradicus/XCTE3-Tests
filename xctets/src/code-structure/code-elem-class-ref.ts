@@ -13,7 +13,7 @@ import { CodeElemNamespace } from './code-elem-namespace';
 */
 export class CodeElemClassRef extends CodeElem {
     namespaces: CodeElemNamespace[] = [];
-    plugName: string | null = null;
+    plug_name: string | null = null;
     pluginName: string | null = null;
 }
 

@@ -28,7 +28,7 @@ export class CodeElemVariable extends CodeElem {
     identity: string | null = null;
     isPrimary: boolean = false;
     selectFrom: boolean = false;
-    isOptionsList: boolean = false;
+    isOptions_list: boolean = false;
     templates: CodeElemTemplate[] = [];
     attribs: string[] = [];
     listType: string | null = null;

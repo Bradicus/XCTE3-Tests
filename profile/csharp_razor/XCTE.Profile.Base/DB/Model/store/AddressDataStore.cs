@@ -5,9 +5,9 @@ public class AddressDataStore
     /// Create new record for this model
     /// If you are not using ambient transactions, trans must be defined!
     ///
-    public void Create(Address o, SqlConnection conn, SqlTransaction trans = null)
+    public void Create(AddressDataStore o, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"INSERT INTO Address(
+        string sql = @"INSERT INTO AddressDataStore(
             [id],
             [street1],
             [street2],
@@ -47,16 +47,16 @@ public class AddressDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error inserting Address into database", e);
+            throw new Exception("Error inserting AddressDataStore into database", e);
         };
     }
     
     ///
     /// Update the record for this model
     ///
-    public void Update(Address o, SqlConnection conn, SqlTransaction trans)
+    public void Update(AddressDataStore o, SqlConnection conn, SqlTransaction trans)
     {
-        string sql = @"UPDATE Address SET 
+        string sql = @"UPDATE AddressDataStore SET 
             [street1] = @Street1,
             [street2] = @Street2,
             [city] = @City,
@@ -85,16 +85,16 @@ public class AddressDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error updating address with street 1 = " + o.Street1, e);
+            throw new Exception("Error updating AddressDataStore with street 1 = " + o.Street1, e);
         };
     }
     
     /// <summary>
     /// Reads data set from sql database
     /// </summary>
-    public IEnumerable<Address> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
+    public IEnumerable<AddressDataStore> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
     {
-        List<Address> resultList = new List<Address>();
+        List<AddressDataStore> resultList = new List<AddressDataStore>();
         string sql = @"SELECT 
             [id],
             [street1],
@@ -104,7 +104,7 @@ public class AddressDataStore
             [country],
             [zipCode],
             [active]
-        FROM Address";
+        FROM AddressDataStore";
         
         try
         {
@@ -115,14 +115,14 @@ public class AddressDataStore
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {
-                    var o = new Address();
+                    var o = new AddressDataStore();
                 }
             }
         }
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving all items from Address", e);
+            throw new Exception("Error retrieving all items from AddressDataStore", e);
         };
         
         
@@ -132,11 +132,11 @@ public class AddressDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Address RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
+    public AddressDataStore RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
-        var o = new Address();
+        var o = new AddressDataStore();
         string sql = @"SELECT TOP 1 
-        FROM address
+        FROM AddressDataStore
         WHERE 
             ";
         
@@ -155,7 +155,7 @@ public class AddressDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving one item from address", e);
+            throw new Exception("Error retrieving one item from AddressDataStore", e);
         };
         
         

@@ -6,7 +6,7 @@
 
 	<item_class name="profile listing item" />
 
-		<var_group genGet="true" genSet="true" visibility="private" construct="true">
+		<var_group genGet="true" genSet="true" visibility="private" init_vars="true">
 			<var name="id" identity="(1,1)" type="Int64" pkey="true" />
 			<var_group>
 				<var name="first name" type="String" maxlen="255" required="true" />
@@ -36,8 +36,8 @@
 	  path="profile/profile listing"
 		feature_group="profile">
 		<actions>
-			<action name="view" link="/!{FeatureGroup}/!{FeatureGroup}-user-view" role="user"/>
-			<action name="edit" link="/!{FeatureGroup}/!{FeatureGroup}-admin-edit" role="admin" />
+			<action name="view" link="/!{feature_group}/!{feature_group}-user-view" role="user"/>
+			<action name="edit" link="/!{feature_group}/!{feature_group}-admin-edit" role="admin" />
 			<action name="disable" trigger="disable" role="admin" />
 		</actions>
 	</gen_class>

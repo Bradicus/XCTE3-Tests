@@ -5,9 +5,9 @@ public class ThemeDataStore
     /// Create new record for this model
     /// If you are not using ambient transactions, trans must be defined!
     ///
-    public void Create(Theme o, SqlConnection conn, SqlTransaction trans = null)
+    public void Create(ThemeDataStore o, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"INSERT INTO Theme(
+        string sql = @"INSERT INTO ThemeDataStore(
             [id],
             [name],
             [description]
@@ -32,16 +32,16 @@ public class ThemeDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error inserting Theme into database", e);
+            throw new Exception("Error inserting ThemeDataStore into database", e);
         };
     }
     
     ///
     /// Update the record for this model
     ///
-    public void Update(Theme o, SqlConnection conn, SqlTransaction trans)
+    public void Update(ThemeDataStore o, SqlConnection conn, SqlTransaction trans)
     {
-        string sql = @"UPDATE Theme SET 
+        string sql = @"UPDATE ThemeDataStore SET 
             [name] = @Name,
             [description] = @Description
         WHERE [id] = @Id";
@@ -60,21 +60,21 @@ public class ThemeDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error updating theme with name = " + o.Name, e);
+            throw new Exception("Error updating ThemeDataStore with name = " + o.Name, e);
         };
     }
     
     /// <summary>
     /// Reads data set from sql database
     /// </summary>
-    public IEnumerable<Theme> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
+    public IEnumerable<ThemeDataStore> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
     {
-        List<Theme> resultList = new List<Theme>();
+        List<ThemeDataStore> resultList = new List<ThemeDataStore>();
         string sql = @"SELECT 
             [id],
             [name],
             [description]
-        FROM Theme";
+        FROM ThemeDataStore";
         
         try
         {
@@ -85,14 +85,14 @@ public class ThemeDataStore
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {
-                    var o = new Theme();
+                    var o = new ThemeDataStore();
                 }
             }
         }
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving all items from Theme", e);
+            throw new Exception("Error retrieving all items from ThemeDataStore", e);
         };
         
         
@@ -102,11 +102,11 @@ public class ThemeDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Theme RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
+    public ThemeDataStore RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
-        var o = new Theme();
+        var o = new ThemeDataStore();
         string sql = @"SELECT TOP 1 
-        FROM theme
+        FROM ThemeDataStore
         WHERE 
             ";
         
@@ -125,7 +125,7 @@ public class ThemeDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving one item from theme", e);
+            throw new Exception("Error retrieving one item from ThemeDataStore", e);
         };
         
         

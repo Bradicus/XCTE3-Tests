@@ -5,9 +5,9 @@ public class RoleDataStore
     /// Create new record for this model
     /// If you are not using ambient transactions, trans must be defined!
     ///
-    public void Create(Role o, SqlConnection conn, SqlTransaction trans = null)
+    public void Create(RoleDataStore o, SqlConnection conn, SqlTransaction trans = null)
     {
-        string sql = @"INSERT INTO Role(
+        string sql = @"INSERT INTO RoleDataStore(
             [id],
             [name],
             [description],
@@ -35,16 +35,16 @@ public class RoleDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error inserting Role into database", e);
+            throw new Exception("Error inserting RoleDataStore into database", e);
         };
     }
     
     ///
     /// Update the record for this model
     ///
-    public void Update(Role o, SqlConnection conn, SqlTransaction trans)
+    public void Update(RoleDataStore o, SqlConnection conn, SqlTransaction trans)
     {
-        string sql = @"UPDATE Role SET 
+        string sql = @"UPDATE RoleDataStore SET 
             [name] = @Name,
             [description] = @Description,
             [permissions] = @Permissions
@@ -65,22 +65,22 @@ public class RoleDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error updating role with name = " + o.Name, e);
+            throw new Exception("Error updating RoleDataStore with name = " + o.Name, e);
         };
     }
     
     /// <summary>
     /// Reads data set from sql database
     /// </summary>
-    public IEnumerable<Role> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
+    public IEnumerable<RoleDataStore> RetrieveAll(SqlConnection conn, SqlTransaction trans = null)
     {
-        List<Role> resultList = new List<Role>();
+        List<RoleDataStore> resultList = new List<RoleDataStore>();
         string sql = @"SELECT 
             [id],
             [name],
             [description],
             [permissions]
-        FROM Role";
+        FROM RoleDataStore";
         
         try
         {
@@ -91,14 +91,14 @@ public class RoleDataStore
                 SqlDataReader results = cmd.ExecuteReader();
                 while(results.Read())
                 {
-                    var o = new Role();
+                    var o = new RoleDataStore();
                 }
             }
         }
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving all items from Role", e);
+            throw new Exception("Error retrieving all items from RoleDataStore", e);
         };
         
         
@@ -108,11 +108,11 @@ public class RoleDataStore
     /// <summary>
     /// Reads one result using the specified filter parameters
     /// </summary>
-    public Role RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
+    public RoleDataStore RetrieveOneBy(, SqlConnection conn, SqlTransaction trans = null)
     {
-        var o = new Role();
+        var o = new RoleDataStore();
         string sql = @"SELECT TOP 1 
-        FROM role
+        FROM RoleDataStore
         WHERE 
             ";
         
@@ -131,7 +131,7 @@ public class RoleDataStore
         
         catch(Exception e)
         {
-            throw new Exception("Error retrieving one item from role", e);
+            throw new Exception("Error retrieving one item from RoleDataStore", e);
         };
         
         
