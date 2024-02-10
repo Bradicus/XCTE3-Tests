@@ -49,8 +49,8 @@ namespace XCTE.Base.Data.Config
             
             builder.Property(e => e.Theme)
                 .HasColumnName("theme");
-            
         }
     }
 } // namespace XCTE.Base.Data.Config
+
 

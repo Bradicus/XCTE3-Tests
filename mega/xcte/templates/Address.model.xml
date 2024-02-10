@@ -54,9 +54,7 @@
 					path-java="data"
 			   var_prefix = "a "
 			   interface_namespace="XCTE.Base.Data.Io"
-			   interface_path="XCTE.Base/Data/Io"
-			   test_namespace="Test"
-			   test_path="Test" >
+			   interface_path="XCTE.Base/Data/Io" >
 		<function name="method_tsql_create" interface="true" />
 		<function name="method_tsql_update" interface="true" />
 		<function name="method_tsql_retrieve_all" interface="true" />

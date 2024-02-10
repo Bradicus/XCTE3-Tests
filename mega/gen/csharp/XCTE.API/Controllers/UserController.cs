@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Web.Http;
-using XCTE.Base.Data.Model;
-using XCTE.Base.Data.Io;
 using System.Data.SqlClient;
 
 namespace XCTE.API.Controllers
 {
+    /**
+    *
+    */
     public class UserControllerController : ApiController
     {
         
@@ -23,4 +22,5 @@ namespace XCTE.API.Controllers
         }
     }
 } // namespace XCTE.API.Controllers
+
 

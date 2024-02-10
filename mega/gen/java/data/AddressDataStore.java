@@ -1,9 +1,13 @@
 package com.example.demo.data;
 
-import com.example.demo.model.*;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
-public interface AddressDataStore extends JpaRepository<Address, Long>
-{
-    
+/**
+* @class AddressDataStore
+* 
+*/
+public interface AddressDataStore extends JpaRepository<Address, Long> {
 }
+

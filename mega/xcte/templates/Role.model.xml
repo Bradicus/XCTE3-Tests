@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<model name="theme" >
+<model name="role" >
 
 	<description>
 	</description>
 
 	<var_group genGet="true" genSet="true" visibility="private">
-		<var name="id"		type="Int64" pkey="true" />
+		<var name="id"		type="Int64" maxlen="10" pkey="true" />
 		<var name="name"		type="String" maxlen="50" />
 		<var name="description"		type="String" />
 	</var_group>
@@ -18,6 +18,10 @@
 		ns-java="com.example.demo.model">
 	</gen_class>
 
+	<gen_class type="class_angular_shared_data_store_service"
+		path-typescript="shared/services" >
+	</gen_class>
+
 	<gen_class type="web_api_controller"
 		base_class="ApiController"
 		ns-csharp="XCTE.API.Controllers"
@@ -25,15 +29,6 @@
 		ns-java="com.example.demo.api"
 		path-java="api" >
 		<function name="method_web_api_read_one" />
-	</gen_class>
-
-		<gen_class type="class_angular_module" path="theme" ></gen_class>
-		<gen_class type="class_angular_module_routing" path="theme" ></gen_class>
-
-	<gen_class type="class_angular_listing" path="theme/theme-listing" ></gen_class>
-	<gen_class type="class_angular_reactive_edit" path="theme/theme-view" >
-	 	<function name="method_service_datagen_random" />
-		<function name="method_angular_reactive_call_datamap" />
 	</gen_class>
 
 	<gen_class type="class_angular_data_store_service" path="shared/services" >
@@ -48,19 +43,11 @@
 		<function name="method_service_datagen_init" />
 	</gen_class>
 
-	<gen_class type="class_angular_shared_data_store_service" isList="true"	path-typescript="shared/services" >
-		<function name="method_angular_shared_service_listing" />
-	</gen_class>
-
 	<gen_class type="class_angular_data_map_service" path="shared/services" >
 		<function name="method_datamap_model_to_reactive_form" />
 	</gen_class>
 
-	<gen_class type="empty_file" name="theme view" path="theme/theme-view" ></gen_class>
-	<gen_class type="empty_file" name="theme listing" path="theme/theme-listing" ></gen_class>
-
-		<gen_class type="statement_create">
-		</gen_class>
+<gen_class language="tsql" type="statement_create" namespace="Database" var_prefix = "a "></gen_class>
 
 			<gen_class type="tsql_data_store"
 				namespace-csharp="XCTE.Base.Data.Io" path-csharp="XCTE.Base/Data/Io"
@@ -68,15 +55,15 @@
 					 		ns-java="com.example.demo.data"
 					 		path-java="data"
 					   interface_namespace="XCTE.Base.Data.Io"
-					   interface_path="XCTE.Base/Data/Io"
-					   test_namespace="Test"
-					   test_path="Test" >
+					   interface_path="XCTE.Base/Data/Io" >
 				<function name="method_tsql_create" interface="true" />
 				<function name="method_tsql_update" interface="true" />
 				<function name="method_tsql_retrieve_all" interface="true" />
 				<function name="method_tsql_retrieve_one_by" interface="true" >
 					<var_ref name="id" />
 				</function>
+
+
 
 			<!--	<function name="method_tsql_delete" interface="true" />-->
 				<!--<function name="update" interface="true" />

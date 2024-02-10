@@ -1,15 +1,15 @@
 <project>
-  <generate language="cpp" tpl_path="templates" dest="./gen/cpp" />
-  <generate language="csharp" tpl_path="templates" dest="./gen/csharp" />
-  <generate language="css" tpl_path="templates" dest="./gen/css" />
-  <generate language="html" tpl_path="templates" dest="./gen/html" />
-  <generate language="java" tpl_path="templates" dest="./gen/java" />
-  <generate language="mysql" tpl_path="templates" dest="./gen/mysql" />
-  <generate language="php" tpl_path="templates" dest="./gen/php" />
-  <generate language="python" tpl_path="templates" dest="./gen/python" />
-  <generate language="razor" tpl_path="templates" dest="./gen/razor" />
-  <generate language="ruby" tpl_path="templates" dest="./gen/ruby" />
-  <generate language="sql" tpl_path="templates" dest="./gen/sql" />
-  <generate language="tsql" tpl_path="templates" dest="./gen/tsql" />
-  <generate language="typescript" tpl_path="templates" dest="./gen/typescript" />
+  <generate language="cpp" tpl_path="xcte/templates" dest="./gen/cpp" />
+  <generate language="csharp" tpl_path="xcte/templates" dest="./gen/csharp" />
+  <generate language="css" tpl_path="xcte/templates" dest="./gen/css" />
+  <generate language="html" tpl_path="xcte/templates" dest="./gen/html" />
+  <generate language="java" tpl_path="xcte/templates" dest="./gen/java" />
+  <generate language="mysql" tpl_path="xcte/templates" dest="./gen/mysql" />
+  <generate language="php" tpl_path="xcte/templates" dest="./gen/php" />
+  <generate language="python" tpl_path="xcte/templates" dest="./gen/python" />
+  <generate language="razor" tpl_path="xcte/templates" dest="./gen/razor" />
+  <generate language="ruby" tpl_path="xcte/templates" dest="./gen/ruby" />
+  <generate language="sql" tpl_path="xcte/templates" dest="./gen/sql" />
+  <generate language="tsql" tpl_path="xcte/templates" dest="./gen/tsql" />
+  <generate language="typescript" tpl_path="xcte/templates" dest="./gen/typescript" />
 </project>
