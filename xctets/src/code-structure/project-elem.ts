@@ -5,7 +5,6 @@
 */
 
 import { CodeElem } from './code-elem';
-import { CodeElemType } from './code-elem-type';
 import { ProjectElemGenerator } from './project-elem-generator';
 
 /**
@@ -13,7 +12,6 @@ import { ProjectElemGenerator } from './project-elem-generator';
 * 
 */
 export class ProjectElem extends CodeElem {
-    element_id: CodeElemType = CodeElemType.ELEM_PROJECT;
     buildType: string | null = null;
     templateFolders: string | null = null;
     langProfilePaths: string[] = [];

@@ -4,12 +4,12 @@
 * root directory
 */
 
+import { CodeElem } from './code-elem';
 import { CodeElemClassRef } from './code-elem-class-ref';
+import { CodeElemDataSpec } from './code-elem-data-spec';
 import { CodeElemFunction } from './code-elem-function';
 import { CodeElemInclude } from './code-elem-include';
 import { CodeElemNamespace } from './code-elem-namespace';
-import { CodeElemType } from './code-elem-type';
-import { CodeElemUse } from './code-elem-use';
 import { CodeElemVariable } from './code-elem-variable';
 import { ProjectElem } from './project-elem';
 
@@ -17,23 +17,25 @@ import { ProjectElem } from './project-elem';
 * @class CodeElemClassSpec
 * 
 */
-export class CodeElemClassSpec {
-    element_id: CodeElemType = CodeElemType.ELEM_CLASS_GEN;
-    model: string = "model";
+export class CodeElemClassSpec extends CodeElem {
+    model: CodeElemDataSpec | null = null;
     path: string = "";
+    plugName: string = "";
     namespace: CodeElemNamespace = new CodeElemNamespace();
     language: string = "";
     includes: CodeElemInclude[] = [];
-    uses: CodeElemUse[] = [];
+    uses: CodeElemNamespace[] = [];
     genCfg: ProjectElem | null = new ProjectElem();
     functions: CodeElemFunction[] = [];
-    base_classes: CodeElemClassSpec[] = [];
+    baseClasses: CodeElemClassSpec[] = [];
     interfaces: CodeElemClassSpec[] = [];
     injections: CodeElemVariable[] = [];
-    interface_namespace: CodeElemNamespace = new CodeElemNamespace();
-    test_namespace: CodeElemNamespace = new CodeElemNamespace();
+    interfaceNamespace: CodeElemNamespace = new CodeElemNamespace();
+    interfacePath: string = "";
+    testNamespace: CodeElemNamespace = new CodeElemNamespace();
+    testPath: string = "";
     templateParams: CodeElemClassSpec[] = [];
-    var_prefix: string | null = null;
+    varPrefix: string | null = null;
     preDefs: string[] = [];
     filePath: string | null = null;
     standardClass: string | null = null;
@@ -43,6 +45,12 @@ export class CodeElemClassSpec {
     classGroupRef: CodeElemClassRef | null = new CodeElemClassRef();
     classGroupName: string | null = null;
     variant: string | null = null;
-    feature_group: string | null = null;
+    featureGroup: string | null = null;
+    
+    constructor(parentElem: CodeElem, model: CodeElemDataSpec) {
+        super();
+        this.parentElem = parentElem;
+        this.model = model;
+    }
 }
 

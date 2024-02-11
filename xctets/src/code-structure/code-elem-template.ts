@@ -11,7 +11,6 @@ import { CodeElem } from './code-elem';
 * 
 */
 export class CodeElemTemplate extends CodeElem {
-    name: string = "";
     isPointerTpl: boolean = false;
     isCollection: boolean = false;
     

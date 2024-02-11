@@ -13,10 +13,10 @@ import { CodeElemTemplate } from './code-elem-template';
 */
 export class CodeElemVariable extends CodeElem {
     vtype: string = "";
+    displayName: string | null = null;
     templateType: string = "";
     defaultValue: string | null = null;
-    construct: boolean = false;
-    comment: string = "";
+    init_vars: boolean = false;
     isVirtual: boolean = false;
     isConst: boolean = false;
     isStatic: boolean = false;
@@ -28,7 +28,7 @@ export class CodeElemVariable extends CodeElem {
     identity: string | null = null;
     isPrimary: boolean = false;
     selectFrom: boolean = false;
-    isOptions_list: boolean = false;
+    isOptionsList: boolean = false;
     templates: CodeElemTemplate[] = [];
     attribs: string[] = [];
     listType: string | null = null;

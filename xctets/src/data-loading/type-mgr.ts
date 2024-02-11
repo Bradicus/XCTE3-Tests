@@ -4,11 +4,13 @@
 * root directory
 */
 
+import { Type } from '../lang-profile/type';
+
 /**
-* @class CodeElemNamespace
+* @class TypeMgr
 * 
 */
-export class CodeElemNamespace {
-    nsList: string[] = [];
+export class TypeMgr {
+    types: Type[] = [];
 }
 

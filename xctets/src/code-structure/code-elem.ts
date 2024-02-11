@@ -4,7 +4,6 @@
 * root directory
 */
 
-import { CodeElemType } from './code-elem-type';
 import { DataNode } from '../data-loading/data-node';
 
 /**
@@ -12,13 +11,16 @@ import { DataNode } from '../data-loading/data-node';
 * 
 */
 export class CodeElem {
-    element_id: CodeElemType | null = null;
     name: string | null = null;
-    display_name: string = "";
-    description: string = "";
-    visibility: string = "";
+    comment: string = "";
+    visibility: string | null = null;
     parentElem: CodeElem | null = null;
     dataNode: DataNode | null = null;
-    osInclude: string[] = [];	/** What os's this node is limited to */
+    langOnly: string[] = [];	/** What languages this node is limited to */
+    osOnly: string[] = [];	/** What os's this node is limited to */
+    
+    constructor(parentElem: CodeElem) {
+        this.parentElem = parentElem;
+    }
 }
 

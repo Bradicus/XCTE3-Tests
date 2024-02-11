@@ -4,11 +4,13 @@
 * root directory
 */
 
+import { CodeElem } from './code-elem';
+
 /**
 * @class CodeElemLibraryDependency
 * 
 */
-export class CodeElemLibraryDependency {
+export class CodeElemLibraryDependency extends CodeElem {
     name: string | null = null;
     versionMin: string | null = null;
     versionMax: string | null = null;

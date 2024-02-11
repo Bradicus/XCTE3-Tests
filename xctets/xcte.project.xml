@@ -5,7 +5,7 @@ This file is released under the zlib/libpng license, see license.txt in the
 root directory
   </file_comment>
 
-  <generate tpl_path="templates" dest="./src" language="typescript" ignore_namespace="true">  
+  <generate tpl_path="../../XCTE3/internal/templates" dest="./src" language="typescript" ignore_namespace="true">  
   </generate>  
   
 </project>

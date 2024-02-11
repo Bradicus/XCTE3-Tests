@@ -6,7 +6,6 @@
 
 import { CodeElem } from './code-elem';
 import { CodeElemClassSpec } from './code-elem-class-spec';
-import { CodeElemType } from './code-elem-type';
 import { CodeElemVarGroup } from './code-elem-var-group';
 import { DataFilter } from '../filters/data-filter';
 
@@ -15,12 +14,11 @@ import { DataFilter } from '../filters/data-filter';
 * 
 */
 export class CodeElemDataSpec extends CodeElem {
-    element_id: CodeElemType = CodeElemType.ELEM_MODEL;
     classes: CodeElemClassSpec[] = [];
     varGroup: CodeElemVarGroup = new CodeElemVarGroup();
     xmlFileName: string = "";
     modelSet: string = "";
-    feature_group: string | null = null;
+    featureGroup: string | null = null;
     dataFilter: DataFilter = new DataFilter();
 }
 

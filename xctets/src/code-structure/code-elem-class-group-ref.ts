@@ -4,13 +4,11 @@
 * root directory
 */
 
-import { CodeElem } from './code-elem';
-
 /**
 * @class CodeElemClassGroupRef
 * 
 */
-export class CodeElemClassGroupRef extends CodeElem {
+export class CodeElemClassGroupRef {
     name: string | null = null;
     for: string | null = null;
     feature_group: string | null = null;
