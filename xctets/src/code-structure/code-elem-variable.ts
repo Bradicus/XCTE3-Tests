@@ -35,7 +35,7 @@ export class CodeElemVariable extends CodeElem {
     arrayElemCount: number = 0;
     
     constructor(parentElem: CodeElem) {
-        super();
+        super(parentElem);
     }
 }
 

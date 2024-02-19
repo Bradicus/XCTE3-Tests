@@ -15,7 +15,7 @@ import { DataFilter } from '../filters/data-filter';
 */
 export class CodeElemDataSpec extends CodeElem {
     classes: CodeElemClassSpec[] = [];
-    varGroup: CodeElemVarGroup = new CodeElemVarGroup();
+    varGroup: CodeElemVarGroup | null = null;
     xmlFileName: string = "";
     modelSet: string = "";
     featureGroup: string | null = null;

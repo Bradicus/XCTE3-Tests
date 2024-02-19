@@ -12,7 +12,6 @@ import { CodeElemVariable } from './code-elem-variable';
 * 
 */
 export class CodeElemVarGroup extends CodeElem {
-    elementId: CodeElemType = CodeElemType.ELEM_VAR_GROUP;
     name: string | null = null;
     vars: CodeElemVariable[] = [];
     varGroups: CodeElemVarGroup[] = [];

@@ -12,7 +12,7 @@ import { Attribute } from './attribute';
 */
 export class DataNode {
     name: string = "";
-    parent: DataNode | null = new DataNode();
+    parent: DataNode | null = null;
     attributes: Attribute[] = [];
     children: DataNode[] = [];
     content: string = "";

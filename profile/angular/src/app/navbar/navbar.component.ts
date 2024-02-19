@@ -44,7 +44,7 @@ export class NavbarComponent {
         cNode = this.addNode(newNode, "Theme create", "/theme/theme-edit");
     }
     
-    addNode(toNode: NavNode, name: string, link: string | null) {
+    addNode(toNode: NavNode, name: string, link: string | null): NavNode {
         var newNode = new NavNode(name, link);
         toNode.children.push(newNode);
         return newNode;

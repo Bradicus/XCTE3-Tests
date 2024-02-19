@@ -13,7 +13,7 @@ import { CodeElemVariable } from './code-elem-variable';
 * 
 */
 export class CodeElemFunction extends CodeElem {
-    parameters: CodeElemVarGroup = new CodeElemVarGroup();
+    parameters: CodeElemVarGroup = new CodeElemVarGroup(this);
     isConst: boolean = false;
     isStatic: boolean = false;
     isVirtual: boolean = false;

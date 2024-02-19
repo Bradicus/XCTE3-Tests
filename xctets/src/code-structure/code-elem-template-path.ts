@@ -4,14 +4,14 @@
 * root directory
 */
 
-import { CodeElem } from './code-elem';
 import { CodeElemNamespace } from './code-elem-namespace';
 
 /**
 * @class CodeElemTemplatePath
 * 
 */
-export class CodeElemTemplatePath extends CodeElem {
+export class CodeElemTemplatePath {
+    name: string = "";
     path: string = "";
     dest: string = "";
     languages: string[] = [];
@@ -19,7 +19,6 @@ export class CodeElemTemplatePath extends CodeElem {
     namespace: CodeElemNamespace = new CodeElemNamespace();
     
     constructor(name: string, path: string, dest: string, namespace: CodeElemNamespace) {
-        super();
         this.name = name;
         this.path = path;
         this.dest = dest;

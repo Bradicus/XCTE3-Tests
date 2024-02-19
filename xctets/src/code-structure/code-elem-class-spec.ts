@@ -25,7 +25,7 @@ export class CodeElemClassSpec extends CodeElem {
     language: string = "";
     includes: CodeElemInclude[] = [];
     uses: CodeElemNamespace[] = [];
-    genCfg: ProjectElem | null = new ProjectElem();
+    genCfg: ProjectElem | null = null;
     functions: CodeElemFunction[] = [];
     baseClasses: CodeElemClassSpec[] = [];
     interfaces: CodeElemClassSpec[] = [];
@@ -42,13 +42,13 @@ export class CodeElemClassSpec extends CodeElem {
     standardClassType: string | null = null;
     customCode: string | null = null;
     dataClass: string | null = null;
-    classGroupRef: CodeElemClassRef | null = new CodeElemClassRef();
+    classGroupRef: CodeElemClassRef | null = null;
     classGroupName: string | null = null;
     variant: string | null = null;
     featureGroup: string | null = null;
     
-    constructor(parentElem: CodeElem, model: CodeElemDataSpec) {
-        super();
+    constructor(parentElem: CodeElem | null, model: CodeElemDataSpec | null) {
+        super(parentElem);
         this.parentElem = parentElem;
         this.model = model;
     }

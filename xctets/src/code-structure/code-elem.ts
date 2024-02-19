@@ -19,7 +19,7 @@ export class CodeElem {
     langOnly: string[] = [];	/** What languages this node is limited to */
     osOnly: string[] = [];	/** What os's this node is limited to */
     
-    constructor(parentElem: CodeElem) {
+    constructor(parentElem: CodeElem | null) {
         this.parentElem = parentElem;
     }
 }
