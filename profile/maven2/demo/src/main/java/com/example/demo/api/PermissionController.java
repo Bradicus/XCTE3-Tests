@@ -23,6 +23,10 @@ import com.example.demo.util.*;
 
 @RestController
 public class PermissionController {
+    final List<Integer> pageSizes = List.of(5,25,50,100);
+    
+    final List<String> searchCols = List.of("code","description");
+    
     @Autowired
     private PermissionDataStore permissionDataStore;
     
@@ -71,18 +75,22 @@ public class PermissionController {
     @GetMapping(path = "permission", produces = MediaType.APPLICATION_JSON_VALUE)
     public FilteredPageRespTpl<Permission> GetPermissions(
             @RequestParam(defaultValue="0") Integer pageNum,
-            @RequestParam(defaultValue="10") Integer pageSize,
+            @RequestParam(defaultValue="5") Integer pageSize,
             @RequestParam(defaultValue="") String sortBy,
             @RequestParam(defaultValue="true") Boolean sortAsc,
-            @RequestParam(defaultValue="") String searchValue) {
+            @RequestParam(defaultValue="") String searchCode,
+            @RequestParam(defaultValue="") String searchDescription) {
         Sort sort = null;
         if (sortBy.length() > 0 && sortBy.length() > 0) {
             sort = Filter.getSort(sortBy, sortAsc);
         }
         
+        if (pageSizes.size() > 0 && !pageSizes.contains(pageSize))
+            pageSize = pageSizes.get(0);
+        
         PageRequest pageRequest = Filter.getPageRequest(pageNum, pageSize, sort);
         Page<Permission> items;
-        items = permissionDataStore.findAll(pageRequest);
+        items = permissionDataStore.findByCodeContainsAndDescriptionContains(pageRequest, searchCode, searchDescription);
         
         var response = new FilteredPageRespTpl<Permission>();
         response.data = items.getContent();
@@ -90,7 +98,6 @@ public class PermissionController {
         response.pageNum = pageNum.intValue();
         response.pageSize = pageSize;
         response.sortBy = sortBy;
-        response.searchValue = searchValue;
         
         return response;
     }

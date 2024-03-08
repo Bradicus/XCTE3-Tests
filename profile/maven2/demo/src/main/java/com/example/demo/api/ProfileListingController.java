@@ -42,7 +42,7 @@ public class ProfileListingController {
             @RequestParam(defaultValue="5") Integer pageSize,
             @RequestParam(defaultValue="") String sortBy,
             @RequestParam(defaultValue="true") Boolean sortAsc,
-            @RequestParam(defaultValue="") String searchValue) {
+            @RequestParam(defaultValue="") String searchAll) {
         Sort sort = null;
         if (sortBy.length() > 0 && sortBy.length() > 0) {
             sort = Filter.getSort(sortBy, sortAsc);
@@ -53,7 +53,7 @@ public class ProfileListingController {
         
         PageRequest pageRequest = Filter.getPageRequest(pageNum, pageSize, sort);
         Page<Profile> items;
-        items = profileDataStore.searchAll(pageRequest, searchValue, searchValue, searchValue);
+        items = profileDataStore.searchForFirstNameLastNameEmail(pageRequest, searchAll, searchAll, searchAll);
         
         var mappedItems = items.map(item -> mapper.mapToProfileListing(item));
         var response = new FilteredPageRespTpl<ProfileListing>();
@@ -62,7 +62,6 @@ public class ProfileListingController {
         response.pageNum = pageNum.intValue();
         response.pageSize = pageSize;
         response.sortBy = sortBy;
-        response.searchValue = searchValue;
         
         return response;
     }

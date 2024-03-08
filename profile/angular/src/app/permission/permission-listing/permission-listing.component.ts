@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Permission } from '../../shared/dto/model/permission';
 import { FilteredPageReqTpl } from '../../shared/paging/filtered-page-req-tpl';
 import { FilteredPageRespTpl } from '../../shared/paging/filtered-page-resp-tpl';
@@ -17,7 +18,13 @@ export class PermissionListingComponent implements OnInit  {
     public page: FilteredPageRespTpl<Permission> = new FilteredPageRespTpl<Permission>;
     public pageReq: FilteredPageReqTpl<Permission> = new FilteredPageReqTpl<Permission>;
     
+    public codeDescriptionSubject: Subject<string> = new Subject<string>();
+    
     constructor(private permissionDataStoreService: PermissionDataStoreService, private route: ActivatedRoute) {
+        this.codeDescriptionSubject.pipe(
+            debounceTime(250),
+            distinctUntilChanged())
+        .subscribe((p) =>  { this.goToPage(0); });
     }
     
     ngOnInit() {
@@ -66,6 +73,7 @@ export class PermissionListingComponent implements OnInit  {
     
     onSearch(event: any) {
         this.pageReq.searchValue = event.target.value;
+        this.codeDescriptionSubject.next(event.target.value);
     }
     
     onDelete(item: Permission) {

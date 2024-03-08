@@ -11,6 +11,6 @@ import { Type } from '../lang-profile/type';
 * 
 */
 export class ProjectPlanMgr {
-    types: Type[] = [];
+    static items: Type[] = [];
 }
 

@@ -10,5 +10,7 @@ import org.springframework.data.domain.PageRequest;
 * 
 */
 public interface PermissionDataStore extends JpaRepository<Permission, Long> {
+    
+    Page<Permission> findByCodeContainsAndDescriptionContains(PageRequest pageRequest, String code, String description);
 }
 

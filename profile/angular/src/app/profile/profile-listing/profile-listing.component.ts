@@ -18,12 +18,12 @@ export class ProfileListingComponent implements OnInit  {
     public page: FilteredPageRespTpl<ProfileListing> = new FilteredPageRespTpl<ProfileListing>;
     public pageReq: FilteredPageReqTpl<ProfileListing> = new FilteredPageReqTpl<ProfileListing>;
     
-    public searchFirstNameOrLastNameOrEmailSubject: Subject<string> = new Subject<string>();
+    public searchAllSubject: Subject<string> = new Subject<string>();
     
     constructor(
             private profileListingDataStoreService: ProfileListingDataStoreService,
             private route: ActivatedRoute) {
-        this.searchFirstNameOrLastNameOrEmailSubject.pipe(
+        this.searchAllSubject.pipe(
             debounceTime(250),
             distinctUntilChanged())
         .subscribe((p) =>  { this.goToPage(0); });
@@ -75,7 +75,7 @@ export class ProfileListingComponent implements OnInit  {
     
     onSearch(event: any) {
         this.pageReq.searchValue = event.target.value;
-        this.searchFirstNameOrLastNameOrEmailSubject.next(event.target.value);
+        this.searchAllSubject.next(event.target.value);
     }
     
     onDisable(item: ProfileListing) {

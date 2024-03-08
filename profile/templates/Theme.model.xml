@@ -17,7 +17,7 @@
 
 	<paging pager="server">
 		<sort defaultVar="id" defaultOrder="" />
-		<search type="shared" columns="name"/>
+		<search columns="name"/>
 		<page_filter sizes="5, 25, 50, 100" default="5" />
 	</paging>
 

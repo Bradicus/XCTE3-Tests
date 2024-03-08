@@ -14,7 +14,5 @@ public class FilteredPageRespTpl<T> {
     public int pageCount;
     public String sortBy;
     public boolean sortAsc;
-    public String searchCols;
-    public String searchValue;
 }
 

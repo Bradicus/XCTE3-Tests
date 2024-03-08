@@ -44,7 +44,6 @@ export class ProfileUserDataStoreService {
         params = params.append("pageSize", req.pageSize);
         params = params.append("sortBy", req.sortBy);
         params = params.append("sortAsc", req.sortAsc);
-        params = params.append("searchValue", req.searchValue);
         
         return this.httpClient.get<FilteredPageRespTpl<ProfileUser>>(`${this.apiUrl}/profile-user`, { params} );
     }

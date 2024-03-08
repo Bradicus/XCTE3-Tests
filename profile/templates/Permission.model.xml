@@ -10,6 +10,12 @@
 		<var name="description" type="String" />
 	</var_group>
 
+	<filters pager="server">
+		<sort defaultVar="id" defaultOrder="" />
+		<search type="column" columns="code, description"/>
+		<page_filter sizes="5, 25, 50, 100" default="5" />
+	</filters>
+
 	<class_group_ref name="data store server w delete" />
 	<class_group_ref name="data store client w delete" />
 	<class_group_ref name="view" feature_group="permission" />
@@ -19,11 +25,6 @@
 		  name="!{feature_group} listing"
 		  path="!{feature_group}/!{feature_group} listing"
 			feature_group="permission">
-			<search_by name="code"/>
-			<search_by name="description"/>
-			<paging
-				pager="server"
-				sizes="10,20,50"/>
 			<actions>
 				<action name="view" link="/!{feature_group}/!{feature_group}-view" role="user"/>
 				<action name="edit" link="/!{feature_group}/!{feature_group}-edit" role="admin" />

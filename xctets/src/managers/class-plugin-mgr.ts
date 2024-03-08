@@ -11,6 +11,6 @@ import { Type } from '../lang-profile/type';
 * 
 */
 export class ClassPluginMgr {
-    types: Type[] = [];
+    static types: Type[] = [];
 }
 

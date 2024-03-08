@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class ThemeController {
+    
     @Autowired
     private ThemeDataStore themeDataStore;
     
@@ -44,8 +45,7 @@ public class ThemeController {
             @RequestParam(defaultValue="0") Integer pageNum,
             @RequestParam(defaultValue="10") Integer pageSize,
             @RequestParam(defaultValue="") String sortBy,
-            @RequestParam(defaultValue="true") Boolean sortAsc,
-            @RequestParam(defaultValue="") String searchValue) {
+            @RequestParam(defaultValue="true") Boolean sortAsc) {
         Sort sort = null;
         if (sortBy.length() > 0 && sortBy.length() > 0) {
             sort = Filter.getSort(sortBy, sortAsc);
@@ -61,7 +61,6 @@ public class ThemeController {
         response.pageNum = pageNum.intValue();
         response.pageSize = pageSize;
         response.sortBy = sortBy;
-        response.searchValue = searchValue;
         
         return response;
     }

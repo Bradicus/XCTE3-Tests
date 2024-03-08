@@ -47,8 +47,7 @@ public class AddressController {
             @RequestParam(defaultValue="0") Integer pageNum,
             @RequestParam(defaultValue="5") Integer pageSize,
             @RequestParam(defaultValue="") String sortBy,
-            @RequestParam(defaultValue="true") Boolean sortAsc,
-            @RequestParam(defaultValue="") String searchValue) {
+            @RequestParam(defaultValue="true") Boolean sortAsc) {
         Sort sort = null;
         if (sortBy.length() > 0 && sortBy.length() > 0) {
             sort = Filter.getSort(sortBy, sortAsc);
@@ -67,7 +66,6 @@ public class AddressController {
         response.pageNum = pageNum.intValue();
         response.pageSize = pageSize;
         response.sortBy = sortBy;
-        response.searchValue = searchValue;
         
         return response;
     }

@@ -21,8 +21,6 @@
 			  name="!{feature_group} listing"
 			  path="!{feature_group}/!{feature_group} listing"
 				feature_group="role">
-				<search_by name="code"/>
-				<search_by name="description"/>
 				<paging
 					pager="server"
 					sizes="10,20,50"/>

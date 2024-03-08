@@ -5,7 +5,5 @@ export class FilteredPageRespTpl<T> {
     pageCount: number = 0;
     sortBy: string = "";
     sortAsc: boolean = true;
-    searchCols: string = "";
-    searchValue: string = "";
 }
 

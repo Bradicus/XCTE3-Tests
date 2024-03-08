@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of (page)?.data">
+            <tr *ngFor="let item of (pageObv | async)?.data">
                 <td>{{item.id}}</td>
                 <td>{{item.street1}}</td>
                 <td>{{item.street2}}</td>
@@ -42,9 +42,9 @@
                 <th></th>
             </tr>
         </tbody>
-        <tfoot *ngIf="(page)?.pageCount ?? 0 > 1">
+        <tfoot *ngIf="(pageObv | async)?.pageCount ?? 0 > 1">
             <tr>
-                <td class="list-group-horizontal" colspan="8">
+                <td class="list-group-horizontal" colspan="0">
                     <ul class="pagination list-group list-group-horizontal">
                         <li>
                             <a class="page-link" style="cursor: pointer" (click)="goToPage(0)">&lt;&lt;</a>
@@ -52,7 +52,7 @@
                         <li>
                             <a class="page-link" style="cursor: pointer" (click)="goToPreviousPage()">&lt;</a>
                         </li>
-                        <li class="page-item" *ngFor="let item of [].constructor((page)?.pageCount ?? 0);let i = index">
+                        <li class="page-item" *ngFor="let item of [].constructor((pageObv | async)?.pageCount ?? 0);let i = index">
                             <a class="page-link" style="cursor: pointer" (click)="goToPage(i)">{{i + 1}}</a>
                         </li>
                         <li>
