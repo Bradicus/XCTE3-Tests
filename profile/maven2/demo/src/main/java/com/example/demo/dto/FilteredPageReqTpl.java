@@ -11,6 +11,6 @@ public class FilteredPageReqTpl<T> {
     public String sortBy;
     public boolean sortAsc;
     public String searchCols;
-    public String searchValue;
+    public FilteredPageSearchParam searchParams;
 }
 

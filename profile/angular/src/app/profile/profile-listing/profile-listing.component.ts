@@ -74,7 +74,7 @@ export class ProfileListingComponent implements OnInit  {
     }
     
     onSearch(event: any) {
-        this.pageReq.searchValue = event.target.value;
+        this.pageReq.searchParams.set('searchAll', event.target.value);
         this.searchAllSubject.next(event.target.value);
     }
     

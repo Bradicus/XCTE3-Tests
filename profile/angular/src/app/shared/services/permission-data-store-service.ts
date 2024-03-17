@@ -40,8 +40,9 @@ export class PermissionDataStoreService {
         params = params.append("pageSize", req.pageSize);
         params = params.append("sortBy", req.sortBy);
         params = params.append("sortAsc", req.sortAsc);
-        params = params.append("code", req.searchValue);
-        params = params.append("description", req.searchValue);
+        for (let [key, value] of  req.searchParams) {
+            params = params.append(key, value);
+        }
         
         return this.httpClient.get<FilteredPageRespTpl<Permission>>(`${this.apiUrl}/permission`, { params} );
     }

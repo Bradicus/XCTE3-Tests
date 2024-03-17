@@ -72,7 +72,7 @@ export class PermissionListingComponent implements OnInit  {
     }
     
     onSearch(event: any) {
-        this.pageReq.searchValue = event.target.value;
+        this.pageReq.searchParams.set('codeDescription', event.target.value);
         this.codeDescriptionSubject.next(event.target.value);
     }
     

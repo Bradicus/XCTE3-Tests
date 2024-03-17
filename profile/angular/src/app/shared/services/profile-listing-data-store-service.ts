@@ -44,7 +44,7 @@ export class ProfileListingDataStoreService {
         params = params.append("pageSize", req.pageSize);
         params = params.append("sortBy", req.sortBy);
         params = params.append("sortAsc", req.sortAsc);
-        params = params.append("searchAll", req.searchValue);
+        params = params.append('searchAll', req.searchParams.get('searchAll') ?? '');
         
         return this.httpClient.get<FilteredPageRespTpl<ProfileListing>>(`${this.apiUrl}/profile-listing`, { params} );
     }

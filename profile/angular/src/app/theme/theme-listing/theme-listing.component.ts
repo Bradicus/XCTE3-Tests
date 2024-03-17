@@ -65,7 +65,6 @@ export class ThemeListingComponent implements OnInit  {
     }
     
     onSearch(event: any) {
-        this.pageReq.searchValue = event.target.value;
     }
 }
 
