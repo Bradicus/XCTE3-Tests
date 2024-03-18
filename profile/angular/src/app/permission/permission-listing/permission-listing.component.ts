@@ -18,10 +18,16 @@ export class PermissionListingComponent implements OnInit  {
     public page: FilteredPageRespTpl<Permission> = new FilteredPageRespTpl<Permission>;
     public pageReq: FilteredPageReqTpl<Permission> = new FilteredPageReqTpl<Permission>;
     
-    public codeDescriptionSubject: Subject<string> = new Subject<string>();
+    public codeSubject: Subject<string> = new Subject<string>();
+    public descriptionSubject: Subject<string> = new Subject<string>();
     
     constructor(private permissionDataStoreService: PermissionDataStoreService, private route: ActivatedRoute) {
-        this.codeDescriptionSubject.pipe(
+        this.codeSubject.pipe(
+            debounceTime(250),
+            distinctUntilChanged())
+        .subscribe((p) =>  { this.goToPage(0); });
+        
+        this.descriptionSubject.pipe(
             debounceTime(250),
             distinctUntilChanged())
         .subscribe((p) =>  { this.goToPage(0); });
@@ -71,9 +77,14 @@ export class PermissionListingComponent implements OnInit  {
         this.updatePageData();
     }
     
-    onSearch(event: any) {
-        this.pageReq.searchParams.set('codeDescription', event.target.value);
-        this.codeDescriptionSubject.next(event.target.value);
+    onSearchCode(event: any) {
+        this.pageReq.searchParams.set('code', event.target.value);
+        this.codeSubject.next(event.target.value);
+    }
+    
+    onSearchDescription(event: any) {
+        this.pageReq.searchParams.set('description', event.target.value);
+        this.descriptionSubject.next(event.target.value);
     }
     
     onDelete(item: Permission) {

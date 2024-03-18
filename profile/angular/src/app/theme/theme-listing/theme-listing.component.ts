@@ -63,8 +63,5 @@ export class ThemeListingComponent implements OnInit  {
         
         this.updatePageData();
     }
-    
-    onSearch(event: any) {
-    }
 }
 

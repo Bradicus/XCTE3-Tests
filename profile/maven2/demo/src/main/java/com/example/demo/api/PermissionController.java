@@ -78,8 +78,8 @@ public class PermissionController {
             @RequestParam(defaultValue="5") Integer pageSize,
             @RequestParam(defaultValue="") String sortBy,
             @RequestParam(defaultValue="true") Boolean sortAsc,
-            @RequestParam(defaultValue="") String searchCode,
-            @RequestParam(defaultValue="") String searchDescription) {
+            @RequestParam(defaultValue="") String code,
+            @RequestParam(defaultValue="") String description) {
         Sort sort = null;
         if (sortBy.length() > 0 && sortBy.length() > 0) {
             sort = Filter.getSort(sortBy, sortAsc);
@@ -90,7 +90,7 @@ public class PermissionController {
         
         PageRequest pageRequest = Filter.getPageRequest(pageNum, pageSize, sort);
         Page<Permission> items;
-        items = permissionDataStore.findByCodeContainsAndDescriptionContains(pageRequest, searchCode, searchDescription);
+        items = permissionDataStore.findByCodeContainsAndDescriptionContains(pageRequest, code, description);
         
         var response = new FilteredPageRespTpl<Permission>();
         response.data = items.getContent();

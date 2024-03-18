@@ -64,8 +64,5 @@ export class RoleListingComponent implements OnInit  {
         
         this.updatePageData();
     }
-    
-    onSearch(event: any) {
-    }
 }
 

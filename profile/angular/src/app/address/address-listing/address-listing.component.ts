@@ -63,8 +63,5 @@ export class AddressListingComponent implements OnInit  {
         
         this.updatePageData();
     }
-    
-    onSearch(event: any) {
-    }
 }
 
