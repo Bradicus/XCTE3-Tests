@@ -1,0 +1,33 @@
+<div>
+    <h2>Stat</h2>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="populateRandom()">Populate</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+    </div>
+    <form [formGroup]="statEditForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" />
+                <div class="alert alert-danger" *ngIf="statEditForm.get('name')?.invalid && (statEditForm.get('name')?.dirty || statEditForm.get('name')?.touched)">
+                    <div *ngIf="statEditForm.get('name')?.errors?.['required']">Name is required</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="curValue">Cur value</label>
+                <input class="form-control" id="curValue" formControlName="curValue" type="number" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="maxValue">Max value</label>
+                <input class="form-control" id="maxValue" formControlName="maxValue" type="number" />
+                <div class="alert alert-danger" *ngIf="statEditForm.get('maxValue')?.invalid && (statEditForm.get('maxValue')?.dirty || statEditForm.get('maxValue')?.touched)">
+                    <div *ngIf="statEditForm.get('maxValue')?.errors?.['required']">Max value is required</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

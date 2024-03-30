@@ -10,6 +10,11 @@
 		<var name="description"		type="String" />
 	</var_group>
 
+	<gen_class type="{DataModelPlugin}" lang_only="typescript, html"
+		ns="{DataModelNs}"
+		path="{DataModelPath}" >
+	</gen_class>
+
 	<class_group_ref name="data store server" />
 	<class_group_ref name="data store client" />
 	<class_group_ref name="view" feature_group="theme" />
@@ -30,9 +35,6 @@
 					<action name="edit" link="/!{feature_group}/!{feature_group}-edit" role="admin" />
 				</actions>
 			</gen_class>
-
-	<gen_class type="class_angular_module" path="theme" />
-	<gen_class type="class_angular_module_routing" path="theme" />
 
 		<gen_class type="web_api_controller" path="{ControllerPath}" ns="{ControllerNs}">
 			<function name="method_web_api_read_one" />

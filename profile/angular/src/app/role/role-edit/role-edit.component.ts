@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +15,8 @@ import { RoleDataStoreService } from '../../shared/services/role-data-store-serv
 
 @Component({
     selector: 'app-role-edit',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './role-edit.component.html',
     styleUrls: ['./role-edit.component.css']
 })
@@ -66,7 +69,7 @@ export class RoleEditComponent implements OnInit  {
         if (!this.roleEditForm.invalid) {
             if (this.roleEditForm.controls['id'].value === null || !(this.roleEditForm.controls['id'].value > 0)) {
                 this.roleDataStoreService.create(this.roleEditForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","role","role-listing"]);
+                    this.router.navigate(["/","role-listing"]);
                 });
             } else {
             

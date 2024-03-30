@@ -31,12 +31,14 @@
                         <tr></tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let permissionOptionsItem of (permissionOptions | async)?.data">
+                        @for (permissionOptionsItem of (permissionOptions | async)?.data; track permissionOptionsItem.id) {
+                        <tr>
                             <td>{{permissionOptionsItem.id}}</td>
                             <td>{{permissionOptionsItem.code}}</td>
                             <td>{{permissionOptionsItem.description}}</td>
                             <th></th>
                         </tr>
+                        }
                     </tbody>
                 </table>
             </div>

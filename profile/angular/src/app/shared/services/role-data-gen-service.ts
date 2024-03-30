@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Permission } from '../dto/model/permission';
 import { Role } from '../dto/model/role';

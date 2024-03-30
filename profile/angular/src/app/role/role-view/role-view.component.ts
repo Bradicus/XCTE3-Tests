@@ -13,6 +13,8 @@ import { RoleDataStoreService } from '../../shared/services/role-data-store-serv
 
 @Component({
     selector: 'app-role-view',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './role-view.component.html',
     styleUrls: ['./role-view.component.css']
 })

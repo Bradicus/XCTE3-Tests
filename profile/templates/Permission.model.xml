@@ -10,6 +10,11 @@
 		<var name="description" type="String" />
 	</var_group>
 
+	<gen_class type="{DataModelPlugin}" lang_only="typescript, html"
+		ns="{DataModelNs}"
+		path="{DataModelPath}" >
+	</gen_class>
+
 	<filters pager="server">
 		<sort defaultVar="id" defaultOrder="" />
 		<search type="column" columns="code, description"/>
@@ -31,9 +36,6 @@
 				<action name="delete" trigger="delete" role="admin" />
 			</actions>
 		</gen_class>
-
-	<gen_class type="class_angular_module" path="permission" />
-	<gen_class type="class_angular_module_routing" path="permission" />
 
 	<gen_class type="web_api_controller" path="{ControllerPath}" ns="{ControllerNs}">
 		<function name="method_web_api_read_one" />

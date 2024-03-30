@@ -25,7 +25,7 @@
 	</var_group>
 </var_group>
 
-	<gen_class type="standard"
+	<gen_class type="class_standard"
 		type-typescript="ts_interface" path-typescript="shared/interfaces"
 		ns-csharp="XCTE.Base.Data.Model" path-csharp="XCTE.Base/Data/Model"
 		type-java="class_jpa_entity"

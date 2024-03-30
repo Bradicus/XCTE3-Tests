@@ -11,6 +11,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-theme-view',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './theme-view.component.html',
     styleUrls: ['./theme-view.component.css']
 })

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,6 +9,8 @@ import { AddressDataStoreService } from '../../shared/services/address-data-stor
 
 @Component({
     selector: 'app-address-listing',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './address-listing.component.html',
     styleUrls: ['./address-listing.component.css']
 })

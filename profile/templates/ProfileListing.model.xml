@@ -42,11 +42,7 @@
 		</actions>
 	</gen_class>
 
-	<gen_class type="standard" path="{DtoModelPath}" ns="{DtoModelNs}">
-		<use-csharp name="System.Collections.Generic" />
-		<use-java name='java.time.*' />
-		<use-java name='java.util.*' />
-	</gen_class>
+	<gen_class type="class_standard" path="{DtoModelPath}" ns="{DtoModelNs}" />
 
 	<gen_class type="web_api_controller" path="{ControllerPath}" ns="{ControllerNs}">
 		<data_class cname="profile" ns="{DataModelNs}" plugin="{DataModelPlugin}" />

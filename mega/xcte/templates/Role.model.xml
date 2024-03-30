@@ -10,7 +10,7 @@
 		<var name="description"		type="String" />
 	</var_group>
 
-	<gen_class type="standard" type-typescript="ts_interface"
+	<gen_class type="class_standard" type-typescript="ts_interface"
 		ns-csharp="XCTE.Base.Data.Model" path-csharp="XCTE.Base/Data/Model"
 		path-typescript="shared/interfaces"
 		type-java="class_jpa_entity"

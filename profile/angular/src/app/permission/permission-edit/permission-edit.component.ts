@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +13,8 @@ import { PermissionDataStoreService } from '../../shared/services/permission-dat
 
 @Component({
     selector: 'app-permission-edit',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './permission-edit.component.html',
     styleUrls: ['./permission-edit.component.css']
 })
@@ -59,7 +62,7 @@ export class PermissionEditComponent implements OnInit  {
         if (!this.permissionEditForm.invalid) {
             if (this.permissionEditForm.controls['id'].value === null || !(this.permissionEditForm.controls['id'].value > 0)) {
                 this.permissionDataStoreService.create(this.permissionEditForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","permission","permission-listing"]);
+                    this.router.navigate(["/","permission-listing"]);
                 });
             } else {
             

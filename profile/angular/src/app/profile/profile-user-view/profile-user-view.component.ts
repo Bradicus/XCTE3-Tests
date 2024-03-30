@@ -14,6 +14,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-profile-user-view',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './profile-user-view.component.html',
     styleUrls: ['./profile-user-view.component.css']
 })

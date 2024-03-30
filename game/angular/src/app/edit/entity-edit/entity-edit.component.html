@@ -1,0 +1,39 @@
+<div>
+    <h2>Entity</h2>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="populateRandom()">Populate</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+    </div>
+    <form [formGroup]="entityEditForm" (ngSubmit)="onSubmit()">
+        <div class="row form-group">
+            <div class="col-md-3 visually-hidden">
+                <label class="form-label" for="id">Id</label>
+                <input class="form-control" id="id" formControlName="id" type="number" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" />
+                <div class="alert alert-danger" *ngIf="entityEditForm.get('name')?.invalid && (entityEditForm.get('name')?.dirty || entityEditForm.get('name')?.touched)">
+                    <div *ngIf="entityEditForm.get('name')?.errors?.['required']">Name is required</div>
+                </div>
+            </div>
+            <h2>Stats</h2>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let statsItem of (item.stats)">
+                            <td>{{statsItem.id}}</td>
+                            <td>{{statsItem.name}}</td>
+                            <td>{{statsItem.curValue}}</td>
+                            <td>{{statsItem.maxValue}}</td>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

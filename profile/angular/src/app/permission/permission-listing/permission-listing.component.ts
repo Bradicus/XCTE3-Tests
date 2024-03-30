@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,6 +10,8 @@ import { PermissionDataStoreService } from '../../shared/services/permission-dat
 
 @Component({
     selector: 'app-permission-listing',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './permission-listing.component.html',
     styleUrls: ['./permission-listing.component.css']
 })

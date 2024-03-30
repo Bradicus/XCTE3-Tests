@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,6 +9,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-theme-listing',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './theme-listing.component.html',
     styleUrls: ['./theme-listing.component.css']
 })

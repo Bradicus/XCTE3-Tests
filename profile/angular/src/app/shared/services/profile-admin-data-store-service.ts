@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { Observable, map } from 'rxjs';
 import { ProfileAdmin } from '../dto/model/profile-admin';
 import { FilteredPageReqTpl } from '../paging/filtered-page-req-tpl';

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,6 +10,8 @@ import { RoleDataStoreService } from '../../shared/services/role-data-store-serv
 
 @Component({
     selector: 'app-role-listing',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './role-listing.component.html',
     styleUrls: ['./role-listing.component.css']
 })

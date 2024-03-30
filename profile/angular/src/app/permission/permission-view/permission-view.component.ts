@@ -11,6 +11,8 @@ import { PermissionDataStoreService } from '../../shared/services/permission-dat
 
 @Component({
     selector: 'app-permission-view',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './permission-view.component.html',
     styleUrls: ['./permission-view.component.css']
 })

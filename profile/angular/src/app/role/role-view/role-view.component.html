@@ -28,12 +28,14 @@
                     <tr></tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let permissionsItem of (item.permissions)">
+                    @for (permissionsItem of (item.permissions) track permissionsItem.id) {
+                    <tr>
                         <td>{{permissionsItem.id}}</td>
                         <td>{{permissionsItem.code}}</td>
                         <td>{{permissionsItem.description}}</td>
                         <th></th>
                     </tr>
+                    }
                 </tbody>
             </table>
         </div>

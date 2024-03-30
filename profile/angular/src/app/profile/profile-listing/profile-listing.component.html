@@ -34,7 +34,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of (pageObv | async)?.data">
+            @for (item of (page)?.data; track item.id) {
+            <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}}</td>
                 <td>{{item.lastName}}</td>
@@ -49,8 +50,9 @@
                     <button class="btn btn-primary btn-sm" (click)="onDisable(item)">Disable</button>
                 </th>
             </tr>
+            }
         </tbody>
-        <tfoot *ngIf="(pageObv | async)?.pageCount ?? 0 > 1">
+        <tfoot *ngIf="(page)?.pageCount ?? 0 > 1">
             <tr>
                 <td class="list-group-horizontal" colspan="0">
                     <ul class="pagination list-group list-group-horizontal">
@@ -60,7 +62,7 @@
                         <li>
                             <a class="page-link" style="cursor: pointer" (click)="goToPreviousPage()">&lt;</a>
                         </li>
-                        <li class="page-item" *ngFor="let item of [].constructor((pageObv | async)?.pageCount ?? 0);let i = index">
+                        <li class="page-item" *ngFor="let item of [].constructor((page)?.pageCount ?? 0);let i = index">
                             <a class="page-link" style="cursor: pointer" (click)="goToPage(i)">{{i + 1}}</a>
                         </li>
                         <li>

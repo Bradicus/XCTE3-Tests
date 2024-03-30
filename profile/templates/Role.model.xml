@@ -11,6 +11,11 @@
 		<var name="permissions" utype="permission" select_from="permission" rel="many-to-many-shared" set="List" />
 	</var_group>
 
+	<gen_class type="{DataModelPlugin}" lang_only="typescript, html"
+		ns="{DataModelNs}"
+		path="{DataModelPath}" >
+	</gen_class>
+
 	<class_group_ref name="data store server" />
 	<class_group_ref name="data store client" />
 
@@ -29,9 +34,6 @@
 					<action name="edit" link="/!{feature_group}/!{feature_group}-edit" role="admin" />
 				</actions>
 			</gen_class>
-
-	<gen_class type="class_angular_module" path="role" />
-	<gen_class type="class_angular_module_routing" path="role" />
 
 	<gen_class type="web_api_controller" path="{ControllerPath}" ns="{ControllerNs}">
 		<function name="method_web_api_read_one" />

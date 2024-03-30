@@ -179,12 +179,14 @@
                             <tr></tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let roleOptionsItem of (roleOptions | async)?.data">
+                            @for (roleOptionsItem of (roleOptions | async)?.data; track roleOptionsItem.id) {
+                            <tr>
                                 <td>{{roleOptionsItem.id}}</td>
                                 <td>{{roleOptionsItem.name}}</td>
                                 <td>{{roleOptionsItem.description}}</td>
                                 <th></th>
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

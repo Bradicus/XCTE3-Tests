@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +13,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-theme-edit',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './theme-edit.component.html',
     styleUrls: ['./theme-edit.component.css']
 })
@@ -59,7 +62,7 @@ export class ThemeEditComponent implements OnInit  {
         if (!this.themeEditForm.invalid) {
             if (this.themeEditForm.controls['id'].value === null || !(this.themeEditForm.controls['id'].value > 0)) {
                 this.themeDataStoreService.create(this.themeEditForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","theme","theme-listing"]);
+                    this.router.navigate(["/","theme-listing"]);
                 });
             } else {
             

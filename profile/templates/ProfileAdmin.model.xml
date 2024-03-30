@@ -25,7 +25,7 @@
 		</var_group>
 	</var_group>
 
-	<gen_class type="standard" path="{DtoModelPath}" ns="{DtoModelNs}" />
+	<gen_class type="class_standard" path="{DtoModelPath}" ns="{DtoModelNs}" />
 
 	<class_group_ref name="data store client" />
 	<class_group_ref name="edit" feature_group="profile" roles="admin" />

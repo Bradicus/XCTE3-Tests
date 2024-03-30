@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,6 +10,8 @@ import { ProfileListingDataStoreService } from '../../shared/services/profile-li
 
 @Component({
     selector: 'app-profile-listing',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './profile-listing.component.html',
     styleUrls: ['./profile-listing.component.css']
 })

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-profile-admin-edit',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './profile-admin-edit.component.html',
     styleUrls: ['./profile-admin-edit.component.css']
 })
@@ -103,7 +106,7 @@ export class ProfileAdminEditComponent implements OnInit  {
         if (!this.profileAdminEditForm.invalid) {
             if (this.profileAdminEditForm.controls['id'].value === null || !(this.profileAdminEditForm.controls['id'].value > 0)) {
                 this.profileAdminDataStoreService.create(this.profileAdminEditForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","profile","profile-admin-edit", newItem.id]);
+                    this.router.navigate(["/","profile-admin-edit", newItem.id]);
                 });
             } else {
             
