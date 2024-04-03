@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
 import com.example.demo.dto.FilteredPageRespTpl;
+import java.util.function.Function;
 import com.example.demo.util.*;
 import com.example.demo.db.model.*;
 import com.example.demo.db.store.*;
@@ -55,9 +56,17 @@ public class ProfileListingController {
         Page<Profile> items;
         items = profileDataStore.searchForFirstNameLastNameEmail(pageRequest, searchAll, searchAll, searchAll);
         
-        var mappedItems = items.map(item -> mapper.mapToProfileListing(item));
+        var mappedItems = items.map(new Function<Profile, ProfileListing>() {
+            @Override
+            public ProfileListing apply(Profile item) {
+                ProfileListing dto = new ProfileListing();
+                mapper.map(item, dto);
+                return dto;
+            }
+        });
+        
         var response = new FilteredPageRespTpl<ProfileListing>();
-        response.pageCount = mappedItems.getTotalPages();
+        response.pageCount = items.getTotalPages();
         response.data = mappedItems.getContent();
         response.pageNum = pageNum.intValue();
         response.pageSize = pageSize;

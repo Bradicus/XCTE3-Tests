@@ -21,29 +21,24 @@ public interface ProfileMapper {
     * Map -profile user- to -profile-
     */
     public void map(ProfileUser src, @MappingTarget Profile dst);
-    public Profile mapToProfile(ProfileUser src);
     /*
     * Map -profile- to -profile user-
     */
     public void map(Profile src, @MappingTarget ProfileUser dst);
-    public ProfileUser mapToProfileUser(Profile src);
     
     /*
     * Map -profile admin- to -profile-
     */
     public void map(ProfileAdmin src, @MappingTarget Profile dst);
-    public Profile mapToProfile(ProfileAdmin src);
     /*
     * Map -profile- to -profile admin-
     */
     public void map(Profile src, @MappingTarget ProfileAdmin dst);
-    public ProfileAdmin mapToProfileAdmin(Profile src);
     
     /*
     * Map -profile- to -profile listing-
     */
     public void map(Profile src, @MappingTarget ProfileListing dst);
-    public ProfileListing mapToProfileListing(Profile src);
     
     /*
     * Map -List<Profile>- to -List<profile listing>-
