@@ -1,8 +1,7 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { Address } from '../dto/model/address';
 import { User } from '../dto/model/user';
 import { AddressDataGenService } from './address-data-gen-service';
 
@@ -31,7 +30,7 @@ export class UserDataGenService {
         item.theme = 1;
     }
     
-    initData(item: User): void {
+    initData(item:User)(): void {
         item.id = 0;
         item.firstName = '';
         item.lastName = '';

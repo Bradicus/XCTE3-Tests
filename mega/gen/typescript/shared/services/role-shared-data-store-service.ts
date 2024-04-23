@@ -7,7 +7,7 @@ export class RoleSharedDataStoreService {
     lastUpdate: Date = new Date(0);
     expireMinutes: Number = 5;
     
-    constructor(private roleDataStoreService: RoleDataStoreService) {
+    constructor(roleDataStoreService: RoleDataStoreService): void {
     }
 }
 

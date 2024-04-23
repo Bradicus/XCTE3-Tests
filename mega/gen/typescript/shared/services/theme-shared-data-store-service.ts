@@ -9,10 +9,10 @@ export class ThemeSharedDataStoreService {
     lastUpdate: Date = new Date(0);
     expireMinutes: Number = 5;
     
-    constructor(private themeDataStoreService: ThemeDataStoreService) {
+    constructor(themeDataStoreService: ThemeDataStoreService): void {
     }
     
-    listing(req: FilteredPageReqTpl<Theme>): Observable<FilteredPageRespTpl<Theme>> {
+    listing(req:FilteredPageReqTpl<Theme>):Observable<FilteredPageRespTpl<Theme>>(): void {
         if ((this.lastUpdate + this.expireMinutes * 60000) < new Date()) {
             this.item = themeDataStoreService.listing(req);
         }

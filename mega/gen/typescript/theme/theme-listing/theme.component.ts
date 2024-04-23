@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,6 +9,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-theme',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './theme.component.html',
     styleUrls: ['./theme.component.css']
 })
@@ -62,10 +65,6 @@ export class ThemeComponent implements OnInit  {
         }
         
         this.updatePageData();
-    }
-    
-    onSearch(event: any) {
-        this.pageReq.searchValue = event.target.value;
     }
 }
 

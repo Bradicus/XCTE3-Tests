@@ -1,7 +1,8 @@
-<button type="button" class="btn btn-primary btn-sm" routerLink="//user/user-edit/0">New user</button>
+<button type="button" class="btn btn-primary btn-sm" routerLink="/user/user-edit/0">New user</button>
 <div>
     <table class="table">
         <thead>
+            <tr></tr>
             <tr>
                 <th scope="col" style="cursor: pointer" (click)="sortBy('id')">Id
                     <i class="bi bi-arrow-bar-down"></i>
@@ -33,7 +34,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of (page)?.data">
+            @for (item of (page)?.data; track item.id) {
+            <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}}</td>
                 <td>{{item.lastName}}</td>
@@ -45,10 +47,11 @@
                 <td>{{item.theme}}</td>
                 <th></th>
             </tr>
+            }
         </tbody>
         <tfoot *ngIf="(page)?.pageCount ?? 0 > 1">
             <tr>
-                <td class="list-group-horizontal" colspan="9">
+                <td class="list-group-horizontal" colspan="0">
                     <ul class="pagination list-group list-group-horizontal">
                         <li>
                             <a class="page-link" style="cursor: pointer" (click)="goToPage(0)">&lt;&lt;</a>

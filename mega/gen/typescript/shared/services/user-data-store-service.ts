@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { Observable, map } from 'rxjs';
 import { User } from '../dto/model/user';
 import { FilteredPageReqTpl } from '../paging/filtered-page-req-tpl';
@@ -36,7 +36,6 @@ export class UserDataStoreService {
         params = params.append("pageSize", req.pageSize);
         params = params.append("sortBy", req.sortBy);
         params = params.append("sortAsc", req.sortAsc);
-        params = params.append("searchValue", req.searchValue);
         
         return this.httpClient.get<FilteredPageRespTpl<User>>(`${this.apiUrl}/user`, { params} );
     }

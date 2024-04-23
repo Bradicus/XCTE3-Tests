@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +16,8 @@ import { UserDataStoreService } from '../../shared/services/user-data-store-serv
 
 @Component({
     selector: 'app-user',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.css']
 })
@@ -78,7 +81,7 @@ export class UserComponent implements OnInit  {
         if (!this.userForm.invalid) {
             if (this.userForm.controls['id'].value === null || !(this.userForm.controls['id'].value > 0)) {
                 this.userDataStoreService.create(this.userForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","user","user-listing"]);
+                    this.router.navigate(["/","user-listing"]);
                 });
             } else {
             

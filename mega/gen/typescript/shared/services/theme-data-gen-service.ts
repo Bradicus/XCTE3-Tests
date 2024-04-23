@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Theme } from '../dto/model/theme';
 
@@ -21,7 +21,7 @@ export class ThemeDataGenService {
         item.description = faker.string.alpha(11);
     }
     
-    initData(item: Theme): void {
+    initData(item:Theme)(): void {
         item.id = 0;
         item.name = '';
         item.description = '';

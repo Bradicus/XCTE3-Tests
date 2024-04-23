@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,6 +9,8 @@ import { UserDataStoreService } from '../../shared/services/user-data-store-serv
 
 @Component({
     selector: 'app-user',
+    standalone: true,
+    imports: [ CommonModule, RouterModule ],
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.css']
 })
@@ -62,10 +65,6 @@ export class UserComponent implements OnInit  {
         }
         
         this.updatePageData();
-    }
-    
-    onSearch(event: any) {
-        this.pageReq.searchValue = event.target.value;
     }
 }
 

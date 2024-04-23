@@ -45,7 +45,7 @@
 	<gen_class type="class_standard" path="{DtoModelPath}" ns="{DtoModelNs}" />
 
 	<gen_class type="web_api_controller" path="{ControllerPath}" ns="{ControllerNs}">
-		<data_class cname="profile" ns="{DataModelNs}" plugin="{DataModelPlugin}" />
+		<data_class name="profile" ns="{DataModelNs}" plugin="{DataModelPlugin}" />
 		<function name="method_web_api_read_many" />
 	</gen_class>
 </model>

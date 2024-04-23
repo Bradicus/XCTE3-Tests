@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Role } from '../dto/model/role';
 
@@ -21,7 +21,7 @@ export class RoleDataGenService {
         item.description = faker.string.alpha(11);
     }
     
-    initData(item: Role): void {
+    initData(item:Role)(): void {
         item.id = 0;
         item.name = '';
         item.description = '';

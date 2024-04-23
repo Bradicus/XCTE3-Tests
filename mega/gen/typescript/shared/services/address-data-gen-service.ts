@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Address } from '../dto/model/address';
 
@@ -25,7 +25,7 @@ export class AddressDataGenService {
         item.zipCode = faker.location.zipCode();
     }
     
-    initData(item: Address): void {
+    initData(item:Address)(): void {
         item.id = 0;
         item.street1 = '';
         item.street2 = '';

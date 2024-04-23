@@ -24,13 +24,15 @@
                         <tr></tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let statsItem of (item.stats)">
+                        @for (statsItem of (item.stats) track statsItem.id) {
+                        <tr>
                             <td>{{statsItem.id}}</td>
                             <td>{{statsItem.name}}</td>
                             <td>{{statsItem.curValue}}</td>
                             <td>{{statsItem.maxValue}}</td>
                             <th></th>
                         </tr>
+                        }
                     </tbody>
                 </table>
             </div>

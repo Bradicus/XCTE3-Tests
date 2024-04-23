@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +13,8 @@ import { ThemeDataStoreService } from '../../shared/services/theme-data-store-se
 
 @Component({
     selector: 'app-theme',
+    standalone: true,
+    imports: [ CommonModule, ReactiveFormsModule ],
     templateUrl: './theme.component.html',
     styleUrls: ['./theme.component.css']
 })
@@ -59,7 +62,7 @@ export class ThemeComponent implements OnInit  {
         if (!this.themeForm.invalid) {
             if (this.themeForm.controls['id'].value === null || !(this.themeForm.controls['id'].value > 0)) {
                 this.themeDataStoreService.create(this.themeForm.value).subscribe(newItem =>  {
-                    this.router.navigate(["/","theme","theme-listing"]);
+                    this.router.navigate(["/","theme-listing"]);
                 });
             } else {
             
